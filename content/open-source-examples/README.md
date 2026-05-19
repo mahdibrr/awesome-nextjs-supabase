@@ -43,3 +43,22 @@ Before copying an approach, check:
 - Are service role keys kept server-only?
 - Are Stripe webhooks idempotent?
 - Does the README explain deployment clearly?
+
+## External Reference Resources
+
+Use these official docs, repos, and tools when reviewing or extending open-source examples.
+
+| Resource | Type | Why It Helps |
+|---|---|---|
+| [Next.js App Router](https://nextjs.org/docs/app) | Official docs | Helps identify whether an example uses current App Router patterns. |
+| [Supabase Server-Side Auth](https://supabase.com/docs/guides/auth/server-side) | Official docs | Useful for checking whether a repo handles cookies and sessions correctly. |
+| [Supabase Row Level Security](https://supabase.com/docs/guides/database/postgres/row-level-security) | Official docs | Use it to evaluate whether the database access model is production-safe. |
+| [Supabase Realtime](https://supabase.com/docs/guides/realtime) | Official docs | Reference for chat, presence, broadcast, and collaborative examples. |
+| [Supabase Storage](https://supabase.com/docs/guides/storage) | Official docs | Reference for apps with uploads, avatars, media, or document storage. |
+| [supabase/supabase-js](https://github.com/supabase/supabase-js) | GitHub repo | Official JavaScript client used by most Next.js + Supabase examples. |
+| [supabase/ssr](https://github.com/supabase/ssr) | GitHub repo | Official SSR package for current cookie/session handling. |
+| [vercel/next.js examples](https://github.com/vercel/next.js/tree/canary/examples/with-supabase) | GitHub repo | Official example to compare against community implementations. |
+| [vercel/chatbot](https://github.com/vercel/chatbot) | GitHub repo | High-quality AI chat architecture reference for Next.js applications. |
+| [Playwright](https://playwright.dev/docs/intro) | Production tool | Useful for checking whether an example can support end-to-end tests. |
+| [Sentry for Next.js](https://docs.sentry.io/platforms/javascript/guides/nextjs/) | Production tool | Reference for adding error monitoring to example apps. |
+| [PostHog Docs](https://posthog.com/docs) | Production tool | Product analytics reference for SaaS and dashboard examples. |

@@ -166,3 +166,22 @@ export async function GET() {
   });
 }
 ```
+
+## External Snippet Resources
+
+Use these official docs, repos, and tools when turning snippets into production code.
+
+| Resource | Type | Why It Helps |
+|---|---|---|
+| [Supabase JavaScript Client Reference](https://supabase.com/docs/reference/javascript/introduction) | Official docs | Complete reference for auth, queries, RPC, storage, realtime, and error handling. |
+| [Supabase Server-Side Auth](https://supabase.com/docs/guides/auth/server-side) | Official docs | Canonical cookie-based SSR auth guidance for Next.js. |
+| [Supabase Row Level Security](https://supabase.com/docs/guides/database/postgres/row-level-security) | Official docs | Reference for writing secure policies behind snippets. |
+| [Next.js Route Handlers](https://nextjs.org/docs/app/api-reference/file-conventions/route) | Official docs | Correct patterns for API routes in App Router. |
+| [Next.js Proxy / Middleware](https://nextjs.org/docs/app/api-reference/file-conventions/proxy) | Official docs | Current Next.js request interception and protection model. |
+| [Next.js Mutating Data](https://nextjs.org/docs/app/getting-started/mutating-data) | Official docs | Server Actions and form mutation patterns. |
+| [supabase/supabase-js](https://github.com/supabase/supabase-js) | GitHub repo | Official JS client source and examples. |
+| [supabase/ssr](https://github.com/supabase/ssr) | GitHub repo | Official SSR helpers used for modern Next.js auth snippets. |
+| [supabase/auth-helpers](https://github.com/supabase/auth-helpers) | GitHub repo | Legacy auth helper reference, useful when maintaining older codebases. |
+| [vercel/next.js with-supabase example](https://github.com/vercel/next.js/tree/canary/examples/with-supabase) | GitHub repo | Official example to compare snippet structure against. |
+| [Zod](https://github.com/colinhacks/zod) | Production tool | Runtime validation for route handlers, forms, and Server Actions. |
+| [shadcn/ui](https://github.com/shadcn-ui/ui) | Production tool | Useful component source for form and dashboard UI snippets. |

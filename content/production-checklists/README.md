@@ -62,3 +62,23 @@ Use these checklists before shipping a real Next.js + Supabase app.
 - [ ] Secrets are not committed.
 - [ ] Logs avoid tokens, cookies, and personally identifiable information.
 - [ ] Database backups and recovery plan are understood.
+
+## External Production Resources
+
+Use these external references and tools to harden a real production app.
+
+| Resource | Area | Why It Helps |
+|---|---|---|
+| [Next.js Production Checklist](https://nextjs.org/docs/pages/guides/production-checklist) | Deployment | Official Next.js launch checklist for performance, security, and reliability. |
+| [Vercel Production Checklist](https://vercel.com/docs/production-checklist) | Deployment | Production readiness checks for Vercel-hosted applications. |
+| [Vercel Next.js Deployment](https://vercel.com/docs/frameworks/nextjs) | Deployment | Framework-specific deployment behavior, caching, and runtime reference. |
+| [Supabase Going Into Production](https://supabase.com/docs/guides/deployment/going-into-prod) | Database/platform | Official Supabase production readiness guidance. |
+| [Supabase Backups](https://supabase.com/docs/guides/platform/backups) | Reliability | Backup and recovery reference for production Postgres projects. |
+| [Supabase Row Level Security](https://supabase.com/docs/guides/database/postgres/row-level-security) | Security | Required reference for production authorization. |
+| [Stripe Launch Checklist](https://docs.stripe.com/get-started/account/checklist) | Billing | Official Stripe readiness checklist before taking real payments. |
+| [Stripe Webhooks](https://docs.stripe.com/webhooks) | Billing | Reference for secure webhook signatures, retries, and event handling. |
+| [OWASP ASVS](https://github.com/OWASP/ASVS) | Security | Security verification standard for production web applications. |
+| [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/) | Security | Practical security checklists for auth, sessions, secrets, APIs, and logging. |
+| [Sentry for Next.js](https://docs.sentry.io/platforms/javascript/guides/nextjs/) | Observability | Error monitoring setup for Next.js apps. |
+| [Lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci) | Performance | Automated Lighthouse performance checks in CI/CD. |
+| [Checkly Docs](https://www.checklyhq.com/docs/) | Monitoring | Synthetic monitoring and API checks for production apps. |

@@ -69,3 +69,22 @@ Recommended resources:
 - [Next.js & Supabase Stripe Subscriptions](https://www.iloveblogs.blog/guides/nextjs-supabase-stripe-subscriptions-guide)
 - [Testing Next.js + Supabase](https://www.iloveblogs.blog/guides/nextjs-supabase-testing-strategies)
 - [Mastering Supabase pgvector for Semantic Search in Next.js](https://www.iloveblogs.blog/guides/nextjs-supabase-pgvector-advanced-search)
+
+## External Production Resources
+
+Use these external references to learn from primary sources and production-grade examples.
+
+| Resource | Type | Why It Helps |
+|---|---|---|
+| [Next.js Documentation](https://nextjs.org/docs) | Official docs | Core framework reference for App Router, rendering, caching, and deployment behavior. |
+| [Next.js App Router](https://nextjs.org/docs/app) | Official docs | Best starting point for layouts, routing, Server Components, loading UI, and route handlers. |
+| [Next.js Mutating Data](https://nextjs.org/docs/app/getting-started/mutating-data) | Official docs | Current guidance for forms, mutations, and Server Actions. |
+| [Supabase Documentation](https://supabase.com/docs) | Official docs | Primary reference for Supabase Auth, Postgres, Storage, Realtime, Edge Functions, and local development. |
+| [Supabase Server-Side Auth](https://supabase.com/docs/guides/auth/server-side) | Official docs | Required reading for cookie-based auth in SSR and App Router applications. |
+| [Supabase Row Level Security](https://supabase.com/docs/guides/database/postgres/row-level-security) | Official docs | Foundation for production-safe authorization in Postgres. |
+| [Supabase CLI Getting Started](https://supabase.com/docs/guides/local-development/cli/getting-started) | Official tool docs | Learn local Supabase development, migrations, seed data, and environment parity. |
+| [Vercel Next.js Deployment](https://vercel.com/docs/frameworks/nextjs) | Official docs | Production deployment reference for Next.js on Vercel. |
+| [Stripe Billing](https://docs.stripe.com/billing) | Official docs | Billing model reference for subscriptions, invoices, customers, and pricing. |
+| [GitHub Actions](https://docs.github.com/en/actions) | Official docs | CI/CD foundation for testing, deployments, and scheduled automation. |
+| [vercel/next.js with-supabase example](https://github.com/vercel/next.js/tree/canary/examples/with-supabase) | GitHub repo | Official Next.js example showing Supabase integration patterns. |
+| [supabase/supabase](https://github.com/supabase/supabase) | GitHub repo | Main Supabase open-source repository and issue history for platform behavior. |

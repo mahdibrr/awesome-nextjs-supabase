@@ -102,3 +102,24 @@ Useful resources:
 5. Confirm whether the failing request uses anon, authenticated, or service role access.
 6. Test the underlying SQL in Supabase SQL editor with an equivalent role.
 7. Add one small fix, redeploy, and verify the original failing path.
+
+## External Debugging Resources
+
+Use these official references and tools when debugging production issues.
+
+| Resource | Area | Why It Helps |
+|---|---|---|
+| [Next.js Hydration Error Guide](https://nextjs.org/docs/messages/react-hydration-error) | Next.js | Official explanation of hydration mismatch causes and fixes. |
+| [Next.js Route Handlers](https://nextjs.org/docs/app/api-reference/file-conventions/route) | API debugging | Confirms route handler behavior, caching, and supported HTTP methods. |
+| [Next.js Proxy / Middleware](https://nextjs.org/docs/app/api-reference/file-conventions/proxy) | Auth debugging | Reference for request interception, redirects, and auth protection. |
+| [Supabase Troubleshooting](https://supabase.com/docs/guides/troubleshooting) | Supabase | Official troubleshooting entry point for platform and project issues. |
+| [Supabase Server-Side Auth](https://supabase.com/docs/guides/auth/server-side) | Auth debugging | Cookie/session reference for SSR auth problems. |
+| [Supabase Row Level Security](https://supabase.com/docs/guides/database/postgres/row-level-security) | RLS debugging | Official policy behavior reference for empty data and blocked writes. |
+| [Vercel Runtime Logs](https://vercel.com/docs/logs/runtime) | Deployment debugging | Inspect production route handler and server logs. |
+| [Sentry for Next.js](https://docs.sentry.io/platforms/javascript/guides/nextjs/) | Error monitoring | Capture server and client exceptions with release context. |
+| [Playwright Trace Viewer](https://playwright.dev/docs/trace-viewer) | Browser debugging | Replay failing browser flows and inspect network, DOM, and console output. |
+| [Chrome DevTools Network Panel](https://developer.chrome.com/docs/devtools/network/) | Browser debugging | Inspect failed requests, redirects, cookies, and response headers. |
+| [PostgreSQL EXPLAIN](https://www.postgresql.org/docs/current/using-explain.html) | Query debugging | Diagnose slow Supabase queries and missing indexes. |
+| [Supabase Status](https://status.supabase.com/) | Status page | Check platform incidents before debugging your own code. |
+| [Vercel Status](https://www.vercel-status.com/) | Status page | Check hosting incidents and regional outages. |
+| [Stripe Status](https://status.stripe.com/) | Status page | Check billing and webhook incidents. |
