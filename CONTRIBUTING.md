@@ -36,7 +36,7 @@ Please avoid:
 Example:
 
 ```markdown
-- [Resource Title](resource-url) - Short explanation of the production problem it helps solve.
+- Resource Title - resource-url - Short explanation of the production problem it helps solve.
 ```
 
 ## Review Criteria

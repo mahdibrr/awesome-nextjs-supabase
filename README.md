@@ -27,6 +27,43 @@ Last updated: May 2026
 
 ---
 
+## ⭐ Why This Repo Exists
+
+This repository is a curated production-ready resource hub for developers building with Next.js and Supabase.
+
+The goal is not to collect every possible link. The goal is to organize resources that help developers ship real apps: auth, RLS, SaaS architecture, Stripe billing, performance, deployment, AI search, debugging, and production checklists.
+
+If this saves you debugging time or helps you ship a better app, consider giving the repo a star.
+
+---
+
+## 🚀 Quick Navigation
+
+| Need | Go To |
+|---|---|
+| Learn the stack step by step | [Learning Paths](content/learning-paths/README.md) |
+| Choose a starter direction | [Starter Kits](content/starter-kits/README.md) |
+| Study real projects | [Open Source Examples](content/open-source-examples/README.md) |
+| Ship safely | [Production Checklists](content/production-checklists/README.md) |
+| Copy practical patterns | [Snippets](content/snippets/README.md) |
+| Fix production bugs | [Debugging Playbook](content/debugging-playbook/README.md) |
+| Browse all curated links | [Main README sections](#contents) |
+
+---
+
+## 📚 Documentation Hub
+
+The repo now includes a structured documentation hub under [`content/`](content/README.md):
+
+- [Learning Paths](content/learning-paths/README.md) - 7-day plan plus beginner, intermediate, and advanced roadmap.
+- [Starter Kits](content/starter-kits/README.md) - SaaS, auth, Stripe, realtime, and admin dashboard starter ideas.
+- [Open Source Examples](content/open-source-examples/README.md) - Real GitHub projects using Next.js and Supabase.
+- [Production Checklists](content/production-checklists/README.md) - Auth, RLS, deployment, Stripe, performance, and security checks.
+- [Snippets](content/snippets/README.md) - Supabase auth, middleware, RLS, and API helper snippets.
+- [Debugging Playbook](content/debugging-playbook/README.md) - Common auth, RLS, hydration, and API connection issues.
+
+---
+
 ## Start Here
 
 | Goal | Recommended Resource |
@@ -70,6 +107,9 @@ Last updated: May 2026
 
 ## Contents
 
+- [Why This Repo Exists](#-why-this-repo-exists)
+- [Quick Navigation](#-quick-navigation)
+- [Documentation Hub](#-documentation-hub)
 - [Official References](#official-references)
 - [Core Guides](#core-guides)
 - [Next.js App Router](#nextjs-app-router)
