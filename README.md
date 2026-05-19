@@ -1,4 +1,4 @@
-# Awesome Next.js & Supabase
+# Awesome Next.js + Supabase Production Resources
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![Link Check](https://github.com/mahdibrr/awesome-nextjs-supabase/actions/workflows/link-check.yml/badge.svg)](https://github.com/mahdibrr/awesome-nextjs-supabase/actions/workflows/link-check.yml)
@@ -6,48 +6,49 @@
 [![Supabase](https://img.shields.io/badge/Supabase-Postgres%20%2B%20Auth%20%2B%20Realtime-3ECF8E?logo=supabase&logoColor=white)](https://supabase.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-A curated collection of production-focused guides, tutorials, debugging playbooks, and architecture notes for developers building full-stack apps with **Next.js**, **Supabase**, **Postgres**, **Stripe**, **RLS**, **App Router**, and modern SaaS patterns.
+A curated, production-focused collection of Next.js + Supabase guides, starter kits, debugging fixes, and real-world architecture patterns.
 
-Most examples stop at the demo stage. This list focuses on the parts that break in real apps:
-
-- Authentication and session bugs
-- Supabase RLS and security
-- App Router data fetching
-- Server Actions
-- Stripe subscriptions
-- Production deployment
-- Caching and performance
-- Realtime features
-- pgvector, AI, and RAG
-- CI/CD and testing
+Use it when you are building real apps with **Next.js**, **Supabase**, **Postgres**, **RLS**, **Stripe**, **App Router**, and modern SaaS infrastructure.
 
 Main site: [iloveblogs.blog](https://www.iloveblogs.blog)
 
 Last updated: May 2026
 
----
-
-## ⭐ Why This Repo Exists
-
-This repository is a curated production-ready resource hub for developers building with Next.js and Supabase.
-
-The goal is not to collect every possible link. The goal is to organize resources that help developers ship real apps: auth, RLS, SaaS architecture, Stripe billing, performance, deployment, AI search, debugging, and production checklists.
-
-If this saves you debugging time or helps you ship a better app, consider giving the repo a star.
+If this repo helps you, consider giving it a ⭐.
 
 ---
 
-## 🚀 Quick Navigation
+## ⭐ Why this exists
 
-| Need | Go To |
+Most tutorials show a happy-path demo, then stop before the problems that appear in production.
+
+Developers building with Next.js + Supabase often get stuck on the same hard parts:
+
+- Auth sessions, redirects, cookies, and middleware
+- Row Level Security policies that return empty data
+- SaaS architecture, teams, roles, billing, and webhooks
+- Deployment, caching, performance, and production debugging
+
+This repo exists to collect the resources that solve those real problems, not just beginner setup steps.
+
+---
+
+## 🚀 Quick Start Navigation
+
+| Learning Paths | Starter Kits | Debugging | Checklists | Snippets |
+|---|---|---|---|---|
+| [7-day roadmap](content/learning-paths/README.md) | [Starter ideas](content/starter-kits/README.md) | [Debugging playbook](content/debugging-playbook/README.md) | [Production checks](content/production-checklists/README.md) | [Code snippets](content/snippets/README.md) |
+
+---
+
+## 🔥 Most Useful Sections
+
+| Section | Why It Matters |
 |---|---|
-| Learn the stack step by step | [Learning Paths](content/learning-paths/README.md) |
-| Choose a starter direction | [Starter Kits](content/starter-kits/README.md) |
-| Study real projects | [Open Source Examples](content/open-source-examples/README.md) |
-| Ship safely | [Production Checklists](content/production-checklists/README.md) |
-| Copy practical patterns | [Snippets](content/snippets/README.md) |
-| Fix production bugs | [Debugging Playbook](content/debugging-playbook/README.md) |
-| Browse all curated links | [Main README sections](#contents) |
+| [Auth](#supabase-auth--security) | SSR sessions, OAuth, middleware, redirects, and production auth flows. |
+| [RLS](#database-rls--postgres) | Policies, tenant isolation, silent failures, and secure database access. |
+| [SaaS Architecture](#saas-architecture) | Multi-tenancy, background jobs, launch checklists, scaling, and product structure. |
+| [Stripe Integration](#stripe--billing) | Subscriptions, billing state, webhooks, and paid feature access. |
 
 ---
 
@@ -107,8 +108,9 @@ The repo now includes a structured documentation hub under [`content/`](content/
 
 ## Contents
 
-- [Why This Repo Exists](#-why-this-repo-exists)
-- [Quick Navigation](#-quick-navigation)
+- [Why this exists](#-why-this-exists)
+- [Quick Start Navigation](#-quick-start-navigation)
+- [Most Useful Sections](#-most-useful-sections)
 - [Documentation Hub](#-documentation-hub)
 - [Official References](#official-references)
 - [Core Guides](#core-guides)
