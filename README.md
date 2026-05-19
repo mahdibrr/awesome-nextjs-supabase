@@ -33,6 +33,17 @@ This repo exists to collect the resources that solve those real problems, not ju
 
 ---
 
+## Use Cases
+
+| Use Case | Start Here |
+|---|---|
+| Build SaaS apps | [SaaS Architecture](#saas-architecture), [Starter Kits](content/starter-kits/README.md), [Production Checklists](content/production-checklists/README.md) |
+| Learn Supabase auth | [Supabase Auth & Security](#supabase-auth--security), [Learning Paths](content/learning-paths/README.md), [Debugging Playbook](content/debugging-playbook/README.md) |
+| Fix production issues | [Problem Solver](#problem-solver), [Debugging Playbook](content/debugging-playbook/README.md), [Snippets](content/snippets/README.md) |
+| Speed up development | [Starter Kits](content/starter-kits/README.md), [Snippets](content/snippets/README.md), [Open Source Examples](content/open-source-examples/README.md) |
+
+---
+
 ## 🚀 Quick Start Navigation
 
 | Learning Paths | Starter Kits | Debugging | Checklists | Snippets |
@@ -109,6 +120,7 @@ The repo now includes a structured documentation hub under [`content/`](content/
 ## Contents
 
 - [Why this exists](#-why-this-exists)
+- [Use Cases](#use-cases)
 - [Quick Start Navigation](#-quick-start-navigation)
 - [Most Useful Sections](#-most-useful-sections)
 - [Documentation Hub](#-documentation-hub)
