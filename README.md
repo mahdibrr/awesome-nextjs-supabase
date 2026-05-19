@@ -1,13 +1,14 @@
 # Awesome Next.js & Supabase
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+[![Link Check](https://github.com/mahdibrr/awesome-nextjs-supabase/actions/workflows/link-check.yml/badge.svg)](https://github.com/mahdibrr/awesome-nextjs-supabase/actions/workflows/link-check.yml)
 [![Next.js](https://img.shields.io/badge/Next.js-15%20%2F%2016-black?logo=nextdotjs)](https://nextjs.org/)
 [![Supabase](https://img.shields.io/badge/Supabase-Postgres%20%2B%20Auth%20%2B%20Realtime-3ECF8E?logo=supabase&logoColor=white)](https://supabase.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A curated collection of production-focused guides, tutorials, debugging playbooks, and architecture notes for developers building full-stack apps with **Next.js**, **Supabase**, **Postgres**, **Stripe**, **RLS**, **App Router**, and modern SaaS patterns.
 
-Most examples online stop at the demo stage. This list focuses on the parts that break in real apps:
+Most examples stop at the demo stage. This list focuses on the parts that break in real apps:
 
 - Authentication and session bugs
 - Supabase RLS and security
@@ -21,6 +22,8 @@ Most examples online stop at the demo stage. This list focuses on the parts that
 - CI/CD and testing
 
 Main site: [iloveblogs.blog](https://www.iloveblogs.blog)
+
+Last updated: May 2026
 
 ---
 
@@ -37,8 +40,37 @@ Main site: [iloveblogs.blog](https://www.iloveblogs.blog)
 
 ---
 
+## Learning Paths
+
+| Path | Read These |
+|---|---|
+| First full-stack app | [Full-Stack App Tutorial](https://www.iloveblogs.blog/post/build-fullstack-app-nextjs-supabase-step-by-step), [App Router Guide](https://www.iloveblogs.blog/guides/nextjs-app-router-complete-guide), [Supabase Auth Guide](https://www.iloveblogs.blog/guides/supabase-auth-nextjs-complete-guide-2026) |
+| Production auth | [SSR Session Management](https://www.iloveblogs.blog/guides/nextjs-supabase-ssr-session-management), [Auth Middleware](https://www.iloveblogs.blog/guides/supabase-auth-complete-session-middleware-guide), [Google OAuth](https://www.iloveblogs.blog/guides/supabase-google-oauth-nextjs-15-complete-guide), [RLS Patterns](https://www.iloveblogs.blog/guides/supabase-rls-policy-design-patterns) |
+| SaaS launch | [SaaS Guide](https://www.iloveblogs.blog/guides/building-saas-nextjs-supabase), [Multi-Tenant SaaS](https://www.iloveblogs.blog/guides/nextjs-supabase-multi-tenant-saas-architecture), [Stripe Subscriptions](https://www.iloveblogs.blog/guides/nextjs-supabase-stripe-subscriptions-guide), [Launch Checklist](https://www.iloveblogs.blog/guides/nextjs-supabase-production-launch-checklist) |
+| Performance | [Performance Guide](https://www.iloveblogs.blog/guides/nextjs-performance-optimization), [Caching Strategies](https://www.iloveblogs.blog/guides/nextjs-supabase-caching-strategies), [Next.js 15 Caching](https://www.iloveblogs.blog/post/nextjs-15-caching-explained), [Supabase Slow Queries](https://www.iloveblogs.blog/post/supabase-slow-queries-fix) |
+| AI search | [AI Integration](https://www.iloveblogs.blog/guides/ai-integration-nextjs-supabase), [pgvector Semantic Search](https://www.iloveblogs.blog/guides/nextjs-supabase-pgvector-advanced-search) |
+| Reliability | [Testing Guide](https://www.iloveblogs.blog/guides/nextjs-supabase-testing-strategies), [CI/CD Guide](https://www.iloveblogs.blog/guides/nextjs-supabase-cicd-github-actions-production), [Observability](https://www.iloveblogs.blog/guides/nextjs-supabase-error-handling-observability), [Webhooks](https://www.iloveblogs.blog/guides/nextjs-supabase-webhook-event-architecture) |
+
+---
+
+## Problem Solver
+
+| If This Breaks | Start Here |
+|---|---|
+| Supabase auth redirects fail | [Supabase Auth Redirect Not Working in Next.js App Router](https://www.iloveblogs.blog/post/supabase-auth-redirect-fix) |
+| Sessions disappear after refresh | [Fix Supabase Auth Session Not Persisting After Refresh](https://www.iloveblogs.blog/post/fix-supabase-auth-session-persistence) |
+| RLS returns empty data | [Why Your Supabase RLS Policies Are Silently Failing](https://www.iloveblogs.blog/post/supabase-rls-silent-failures-debug) |
+| Next.js build fails after deploy | [Fix Next.js Module Not Found After Deploy or Production Build](https://www.iloveblogs.blog/post/nextjs-build-module-not-found) |
+| Turbopack hangs while compiling | [Next.js Turbopack Stuck Compiling](https://www.iloveblogs.blog/post/nextjs-turbopack-stuck-fix) |
+| Hydration errors appear in App Router | [Next.js Hydration Mismatch Error](https://www.iloveblogs.blog/post/nextjs-hydration-mismatch-fix) |
+| Supabase queries are slow | [Why Your Supabase Queries Are Slow](https://www.iloveblogs.blog/post/supabase-slow-queries-fix) |
+| Email confirmations are not sending | [Supabase Email Confirmation Not Sending](https://www.iloveblogs.blog/post/supabase-email-confirmation-fix) |
+
+---
+
 ## Contents
 
+- [Official References](#official-references)
 - [Core Guides](#core-guides)
 - [Next.js App Router](#nextjs-app-router)
 - [Supabase Auth & Security](#supabase-auth--security)
@@ -55,13 +87,30 @@ Main site: [iloveblogs.blog](https://www.iloveblogs.blog)
 
 ---
 
+## Official References
+
+Use these primary references alongside the curated guides:
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Next.js App Router](https://nextjs.org/docs/app)
+- [Next.js Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations)
+- [Supabase Documentation](https://supabase.com/docs)
+- [Supabase Auth](https://supabase.com/docs/guides/auth)
+- [Supabase SSR Auth](https://supabase.com/docs/guides/auth/server-side)
+- [Supabase Row Level Security](https://supabase.com/docs/guides/database/postgres/row-level-security)
+- [Supabase Realtime](https://supabase.com/docs/guides/realtime)
+- [Stripe Billing](https://docs.stripe.com/billing)
+- [Vercel Next.js Deployment](https://vercel.com/docs/frameworks/nextjs)
+
+---
+
 ## Core Guides
 
-- [Complete Guide to Building SaaS with Next.js and Supabase](https://www.iloveblogs.blog/guides/building-saas-nextjs-supabase) — End-to-end SaaS architecture, database design, auth, deployment, and production concerns.
-- [Next.js App Router Complete Guide](https://www.iloveblogs.blog/guides/nextjs-app-router-complete-guide) — Routing, layouts, Server Components, loading states, data fetching, and advanced patterns.
-- [Supabase Authentication & Authorization Patterns](https://www.iloveblogs.blog/guides/supabase-authentication-authorization) — Email/password auth, magic links, OAuth, RBAC, RLS, and authorization models.
-- [Deploying Next.js + Supabase to Production](https://www.iloveblogs.blog/guides/deploying-nextjs-supabase-production) — Vercel deployment, environment variables, database migrations, CI/CD, and scaling.
-- [Scaling Next.js + Supabase from 0 to 100K Users](https://www.iloveblogs.blog/guides/scaling-nextjs-supabase-0-to-100k-users-playbook) — Connection pooling, caching, queues, read replicas, and production scaling tradeoffs.
+- [Complete Guide to Building SaaS with Next.js and Supabase](https://www.iloveblogs.blog/guides/building-saas-nextjs-supabase) - End-to-end SaaS architecture, database design, auth, deployment, and production concerns.
+- [Next.js App Router Complete Guide](https://www.iloveblogs.blog/guides/nextjs-app-router-complete-guide) - Routing, layouts, Server Components, loading states, data fetching, and advanced patterns.
+- [Supabase Authentication & Authorization Patterns](https://www.iloveblogs.blog/guides/supabase-authentication-authorization) - Email/password auth, magic links, OAuth, RBAC, RLS, and authorization models.
+- [Deploying Next.js + Supabase to Production](https://www.iloveblogs.blog/guides/deploying-nextjs-supabase-production) - Vercel deployment, environment variables, database migrations, CI/CD, and scaling.
+- [Scaling Next.js + Supabase from 0 to 100K Users](https://www.iloveblogs.blog/guides/scaling-nextjs-supabase-0-to-100k-users-playbook) - Connection pooling, caching, queues, read replicas, and production scaling tradeoffs.
 
 ---
 
@@ -108,7 +157,7 @@ Main site: [iloveblogs.blog](https://www.iloveblogs.blog)
 - [Next.js + Supabase Production Launch Checklist](https://www.iloveblogs.blog/guides/nextjs-supabase-production-launch-checklist)
 - [Background Jobs and Async Task Patterns](https://www.iloveblogs.blog/guides/nextjs-supabase-background-jobs-async-patterns)
 - [Next.js Webhook Handling and Event-Driven Architecture](https://www.iloveblogs.blog/guides/nextjs-supabase-webhook-event-architecture)
-- [7 Next.js + Supabase Architecture Decisions I’d Make Differently](https://www.iloveblogs.blog/post/nextjs-supabase-architecture-decisions-regrets)
+- [7 Next.js + Supabase Architecture Decisions I Would Make Differently](https://www.iloveblogs.blog/post/nextjs-supabase-architecture-decisions-regrets)
 - [10 Common Mistakes Building with Next.js and Supabase](https://www.iloveblogs.blog/post/nextjs-supabase-common-mistakes)
 - [7 Things I Wish I Knew Before Scaling Next.js + Supabase](https://www.iloveblogs.blog/post/nextjs-supabase-lessons-learned-production)
 
@@ -139,7 +188,7 @@ Main site: [iloveblogs.blog](https://www.iloveblogs.blog)
 - [Next.js 15 Caching Explained](https://www.iloveblogs.blog/post/nextjs-15-caching-explained)
 - [Next.js + Supabase Performance: 7 Fixes That Cut Load Time 70%](https://www.iloveblogs.blog/post/nextjs-supabase-performance-optimization-2026)
 - [Next.js Performance Optimization: 10 Essential Techniques](https://www.iloveblogs.blog/post/nextjs-performance-10-techniques-2026)
-- [I Tanked My Core Web Vitals Score With Next.js Images. Here’s How I Fixed It](https://www.iloveblogs.blog/post/nextjs-image-layout-shift-cls-fix)
+- [I Tanked My Core Web Vitals Score With Next.js Images. Here Is How I Fixed It](https://www.iloveblogs.blog/post/nextjs-image-layout-shift-cls-fix)
 - [My Next.js App Showed Stale Data for Hours Until I Fixed Cache Revalidation](https://www.iloveblogs.blog/post/nextjs-stale-cache-revalidation-fix)
 
 ---
@@ -205,7 +254,7 @@ Current curated inventory:
 
 ## Contributing
 
-Pull requests are welcome.
+Pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 Good additions should be:
 
@@ -220,7 +269,7 @@ Please avoid adding shallow listicles, duplicate tutorials, or resources that do
 
 ## License
 
-MIT
+MIT. See [LICENSE](LICENSE).
 
 ---
 
