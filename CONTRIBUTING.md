@@ -2,7 +2,7 @@
 
 Thanks for helping improve Awesome Next.js & Supabase.
 
-This repository is meant to stay practical, focused, and useful for developers building real production apps with Next.js, Supabase, Postgres, RLS, Stripe, App Router, and related SaaS infrastructure.
+This repository is meant to stay practical, focused, and useful for developers building real production apps with Next.js, Supabase, PostgreSQL, RLS, Stripe, App Router, and related SaaS infrastructure.
 
 ## What Belongs Here
 
@@ -21,7 +21,7 @@ Please avoid:
 - Generic listicles with no implementation value
 - Thin AI-generated filler
 - Duplicate resources that cover the same topic without adding depth
-- Resources unrelated to Next.js, Supabase, Postgres, SaaS, or production engineering
+- Resources unrelated to Next.js, Supabase, PostgreSQL, SaaS, or production engineering
 - Keyword-stuffed descriptions
 - Broken links, redirects to spam, or gated pages with no useful preview
 

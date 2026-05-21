@@ -261,6 +261,8 @@ This project gets better when real production failures are added back into the i
 
 Good contributions are specific, tested, and useful to someone shipping a real application.
 
+Launch notes, draft community posts, and awesome-list submission checks live in [community-launch-plan.md](community-launch-plan.md), [community-posts](community-posts), and [SUBMISSION_CHECKLIST.md](SUBMISSION_CHECKLIST.md).
+
 ## Contributing
 
 Pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
