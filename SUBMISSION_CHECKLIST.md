@@ -7,6 +7,9 @@ Launch readiness checklist for public distribution and possible awesome-list sub
 - [x] README explains why the repository exists in the first viewport.
 - [x] README clearly positions the project around production Next.js and Supabase failures.
 - [x] Production Incident Index is prominent and easy to find.
+- [x] Selection Criteria section explains resource quality expectations.
+- [x] How Resources Are Chosen section explains curation order.
+- [x] What This Repo Covers section defines scope.
 - [x] Navigation is scannable: Start Here, Most Useful Sections, failure categories, resources, tools, and community.
 - [x] Formatting is consistent with awesome-list conventions.
 - [x] Tone is practical, neutral, and developer-first.

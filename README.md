@@ -13,6 +13,9 @@ Use it when the demo works, the deployment does not, and you need the fastest pa
 ## Contents
 
 - [Why This Exists](#why-this-exists)
+- [What This Repo Covers](#what-this-repo-covers)
+- [Selection Criteria](#selection-criteria)
+- [How Resources Are Chosen](#how-resources-are-chosen)
 - [Start Here](#start-here)
 - [Most Useful Sections](#most-useful-sections)
 - [Production Failure Categories](#production-failure-categories)
@@ -38,7 +41,35 @@ Real products fail later:
 
 This repository is a war-room reference for those moments. It favors official docs, real open-source examples, production checklists, debugging playbooks, and short notes that help you verify the fix.
 
-If this saves you a debugging session, consider starring the repo so other builders can find it.
+## What This Repo Covers
+
+- Next.js App Router, Server Components, Server Actions, caching, and deployment behavior.
+- Supabase Auth, SSR sessions, RLS, PostgreSQL, Realtime, Storage, Edge Functions, and local development.
+- SaaS architecture, multi-tenant data models, Stripe subscriptions, billing sync, and production launch checks.
+- Debugging workflows for auth, middleware, hydration, database policies, webhooks, stale data, and deployment failures.
+- Testing, monitoring, observability, migrations, type generation, and production tooling.
+
+## Selection Criteria
+
+Resources should be:
+
+- Directly relevant to Next.js, Supabase, PostgreSQL, RLS, Auth, Stripe, App Router, SaaS, deployment, testing, monitoring, or production debugging.
+- Useful to developers building or operating real applications.
+- Maintained, official, widely used, or written by a credible engineering source.
+- Specific enough to solve a problem or explain an important tradeoff.
+- Described neutrally, without hype or keyword stuffing.
+
+Resources are avoided when they are generic, duplicate an existing entry without adding depth, are mostly promotional, are outdated without warning, or have no meaningful public content.
+
+## How Resources Are Chosen
+
+The list prioritizes:
+
+1. Official documentation for core platform behavior.
+2. Maintained open-source examples and starter kits.
+3. Production-grade tools used for testing, monitoring, debugging, billing, and deployment.
+4. Engineering articles that explain real architecture, failure modes, or tradeoffs.
+5. Focused internal notes only when they fill a practical gap not covered by official docs.
 
 ## Start Here
 
@@ -260,8 +291,6 @@ This project gets better when real production failures are added back into the i
 - [Next.js GitHub Discussions](https://github.com/vercel/next.js/discussions) - Framework questions, RFCs, and App Router behavior.
 
 Good contributions are specific, tested, and useful to someone shipping a real application.
-
-Launch notes, draft community posts, and awesome-list submission checks live in [community-launch-plan.md](community-launch-plan.md), [community-posts](community-posts), and [SUBMISSION_CHECKLIST.md](SUBMISSION_CHECKLIST.md).
 
 ## Contributing
 
