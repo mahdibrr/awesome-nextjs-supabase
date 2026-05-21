@@ -4,6 +4,7 @@ All notable repository changes are documented here.
 
 ## 2026-05-21
 
+- Added discoverability improvements for developer search intent, including frequently searched production problems and stronger internal linking.
 - Added community onboarding docs, good first issue ideas, resource request backlog, and README contributor help areas.
 - Added practical README utilities with quick production checks, copy-paste fixes, and top production mistakes.
 - Added awesome-list submission notes, clearer curation criteria, and expanded contribution guidelines for resource and incident suggestions.

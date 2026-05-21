@@ -18,6 +18,7 @@ Use it when the demo works, the deployment does not, and you need the fastest pa
 - [How Resources Are Chosen](#how-resources-are-chosen)
 - [Start Here](#start-here)
 - [Most Useful Sections](#most-useful-sections)
+- [Frequently Searched Problems](#frequently-searched-problems)
 - [Production Failure Categories](#production-failure-categories)
 - [Quick Production Checks](#quick-production-checks)
 - [Copy-Paste Fixes](#copy-paste-fixes)
@@ -49,7 +50,7 @@ This repository is a war-room reference for those moments. It favors official do
 
 - Next.js App Router, Server Components, Server Actions, caching, and deployment behavior.
 - Supabase Auth, SSR sessions, RLS, PostgreSQL, Realtime, Storage, Edge Functions, and local development.
-- SaaS architecture, multi-tenant data models, Stripe subscriptions, billing sync, and production launch checks.
+- Next.js Supabase SaaS architecture, multi-tenant data models, Stripe Supabase SaaS billing sync, and production launch checks.
 - Debugging workflows for auth, middleware, hydration, database policies, webhooks, stale data, and deployment failures.
 - Testing, monitoring, observability, migrations, type generation, and production tooling.
 
@@ -97,17 +98,31 @@ The list prioritizes:
 | Stripe and Billing        | Webhook signatures, idempotency, subscription state sync, and customer portal flows.                                               |
 | Testing and Monitoring    | Playwright, Sentry, runtime logs, synthetic checks, analytics, and production verification loops.                                  |
 
+## Frequently Searched Problems
+
+| Search Intent                | Start Here                     | What To Check First                                                 |
+| ---------------------------- | ------------------------------ | ------------------------------------------------------------------- |
+| Supabase RLS guide           | Database, RLS, and PostgreSQL  | Policy operation, `auth.uid()`, `using`, `with check`, and indexes. |
+| RLS policy debugging         | Production Incident Index      | Test with anon/authenticated users instead of `service_role`.       |
+| Supabase empty array fix     | Quick Production Checks        | RLS is enabled but no `select` policy matches the user.             |
+| Supabase auth App Router     | Auth and Security              | Server-side cookies, callback URLs, middleware exclusions.          |
+| Supabase SSR auth            | Official References            | Server client reads refreshed cookies on protected SSR routes.      |
+| Next.js middleware auth      | Production Failure Categories  | `/login` and `/auth/callback` are excluded from protected matchers. |
+| Next.js production debugging | Quick Triage                   | Logs, cookies, redirects, env vars, cache behavior, and RLS role.   |
+| Next.js Supabase SaaS        | SaaS Architecture and Starters | Auth, RLS, billing, tenant isolation, and deployment checks.        |
+| Stripe Supabase SaaS         | Stripe and Billing             | Webhook signing, idempotency, customer IDs, subscription sync.      |
+
 ## Production Failure Categories
 
-| Category   | Common Symptom                                       | First Check                                                            |
-| ---------- | ---------------------------------------------------- | ---------------------------------------------------------------------- |
-| Auth       | User logs in, then gets sent back to login.          | Check callback allowlists, cookies, and server-side `auth.getUser()`.  |
-| RLS        | Rows exist, but Supabase returns an empty array.     | Test as the real authenticated role, not the service role.             |
-| Middleware | Login or dashboard keeps redirecting.                | Exclude auth callback/login routes from protected matchers.            |
-| Caching    | Dashboard shows stale or wrong user data.            | Mark user-specific routes dynamic and revalidate mutation paths.       |
-| Billing    | Checkout succeeds but the app still shows free plan. | Verify webhook signature, idempotency, and subscription table updates. |
-| Deployment | Works locally, fails on Vercel.                      | Compare production, preview, and local environment variables.          |
-| Realtime   | Chat or presence works for admins only.              | Check Realtime enablement, channel cleanup, and RLS visibility.        |
+| Category   | Common Symptom                                                           | First Check                                                            |
+| ---------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------------- |
+| Auth       | Supabase auth App Router session works locally, then fails after deploy. | Check callback allowlists, cookies, and server-side `auth.getUser()`.  |
+| RLS        | Supabase returns an empty array for rows that exist.                     | Test as the real authenticated role, not the service role.             |
+| Middleware | Next.js middleware auth creates a login/dashboard redirect loop.         | Exclude auth callback/login routes from protected matchers.            |
+| Caching    | Dashboard shows stale or wrong user data.                                | Mark user-specific routes dynamic and revalidate mutation paths.       |
+| Billing    | Checkout succeeds but the app still shows free plan.                     | Verify webhook signature, idempotency, and subscription table updates. |
+| Deployment | Works locally, fails on Vercel.                                          | Compare production, preview, and local environment variables.          |
+| Realtime   | Chat or presence works for admins only.                                  | Check Realtime enablement, channel cleanup, and RLS visibility.        |
 
 ## Quick Production Checks
 
@@ -116,7 +131,7 @@ Run these before blaming the framework.
 | Check                     | Command Or Probe                                            | Passes When                                                            |
 | ------------------------- | ----------------------------------------------------------- | ---------------------------------------------------------------------- |
 | Verify RLS                | Query with the anon/authenticated client, not service role. | Existing rows are visible only to the intended user.                   |
-| Verify Auth persistence   | Refresh a protected SSR page after login.                   | Server code still sees `auth.getUser()`.                               |
+| Verify Supabase SSR auth  | Refresh a protected SSR page after login.                   | Server code still sees `auth.getUser()`.                               |
 | Verify SSR cookies        | Inspect `Set-Cookie` and request cookies in Network tab.    | Auth cookies are present on protected requests.                        |
 | Verify Stripe webhooks    | Replay an event with Stripe CLI or dashboard logs.          | Signature verifies and the subscription row updates once.              |
 | Verify middleware         | `curl -I /login`, `/auth/callback`, and `/dashboard`.       | Login/callback are not trapped in a redirect loop.                     |
@@ -209,7 +224,7 @@ export const config = {
 
 ## Quick Triage
 
-Run these checks before rewriting working code.
+Run these Next.js production debugging checks before rewriting working code.
 
 ```ts
 // Server-side auth must be the source of truth for protected data.
@@ -293,8 +308,8 @@ Quick fixes that solve a surprising number of production incidents:
 - [Build a Full-Stack App with Next.js and Supabase](https://blog.logrocket.com/build-full-stack-app-next-js-supabase/) - LogRocket walkthrough covering Auth, RLS, and deployment basics.
 - [Supabase Auth UI React](https://github.com/supabase/auth-ui) - Official Auth UI components for a fast baseline.
 - [Supabase SSR Package](https://github.com/supabase/ssr) - Official helpers for cookie-based SSR sessions.
+- [Supabase Auth and Middleware Session Management](https://www.iloveblogs.blog/guides/supabase-auth-complete-session-middleware-guide) - Supabase auth App Router patterns, SSR cookies, and middleware route protection.
 - [Supabase Authentication and Authorization Patterns](https://www.iloveblogs.blog/guides/supabase-authentication-authorization) - Email/password Auth, magic links, OAuth, RBAC, RLS, and authorization models.
-- [Supabase Auth and Middleware Session Management](https://www.iloveblogs.blog/guides/supabase-auth-complete-session-middleware-guide) - Middleware, cookies, session refresh, and route protection.
 - [Next.js and Supabase Security Best Practices](https://www.iloveblogs.blog/guides/nextjs-supabase-security-best-practices) - RLS policies, secret management, API security, and Auth hardening.
 
 ### Database, RLS, and PostgreSQL
@@ -304,8 +319,8 @@ Quick fixes that solve a surprising number of production incidents:
 - [PostgreSQL EXPLAIN](https://www.postgresql.org/docs/current/using-explain.html) - Query-plan reference for slow Supabase queries.
 - [Supabase Database Functions](https://supabase.com/docs/guides/database/functions) - PostgreSQL functions, security mode, and RPC patterns.
 - [Supabase Connection Pooler](https://supabase.com/docs/guides/database/connecting-to-postgres#connection-pooler) - Pooled database access for serverless deployments.
+- [Database Migration Strategies for Production Supabase Apps](https://www.iloveblogs.blog/guides/nextjs-supabase-migration-strategies) - Supabase RLS guide companion for schema versioning, rollback strategy, and production-safe migrations.
 - [Database Design and Optimization for Next.js and Supabase](https://www.iloveblogs.blog/guides/nextjs-supabase-database-design-optimization) - Schema design, indexing, and query optimization.
-- [Database Migration Strategies for Production Supabase Apps](https://www.iloveblogs.blog/guides/nextjs-supabase-migration-strategies) - Zero-downtime migrations, rollback strategy, and schema versioning.
 
 ### SaaS Architecture and Starters
 
@@ -319,6 +334,7 @@ Quick fixes that solve a surprising number of production incidents:
 - [antoineross/Hikari](https://github.com/antoineross/Hikari) - Open-source SaaS template using App Router, Stripe, and Supabase.
 - [t3-oss/create-t3-app](https://github.com/t3-oss/create-t3-app) - Popular TypeScript-first Next.js starter.
 - [shadcn Taxonomy](https://github.com/shadcn-ui/taxonomy) - Real-world app structure reference for Next.js and UI composition.
+- [Complete Guide to Building SaaS with Next.js and Supabase](https://www.iloveblogs.blog/guides/building-saas-nextjs-supabase) - Next.js Supabase SaaS architecture from database design to production launch checks.
 
 ### Local Development
 
@@ -346,7 +362,7 @@ Quick fixes that solve a surprising number of production incidents:
 - [stripe-samples/checkout-single-subscription](https://github.com/stripe-samples/checkout-single-subscription) - Single-subscription checkout sample.
 - [Stripe Customer Portal](https://docs.stripe.com/customer-management) - Subscription management, invoices, and customer self-service.
 - [Stripe Testing](https://docs.stripe.com/testing) - Test cards, clocks, and integration checks.
-- [Next.js and Supabase Stripe Subscriptions Guide](https://www.iloveblogs.blog/guides/nextjs-supabase-stripe-subscriptions-guide) - Webhooks, user syncing, gated content, and subscription state.
+- [Next.js and Supabase Stripe Subscriptions Guide](https://www.iloveblogs.blog/guides/nextjs-supabase-stripe-subscriptions-guide) - Stripe Supabase SaaS webhooks, user syncing, gated content, and subscription state.
 
 ### Realtime, Performance, and AI
 
