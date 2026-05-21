@@ -44,6 +44,9 @@ Launch readiness checklist for public distribution and possible awesome-list sub
 - [x] Link-check badge is visible.
 - [x] Issue template exists for resource requests.
 - [x] Pull request template exists.
+- [x] Community guide exists.
+- [x] Good first issue ideas are documented.
+- [x] Resource request backlog exists.
 - [x] Community section links to issues, pull requests, Supabase discussions, and Next.js discussions.
 - [ ] Enable GitHub Discussions in repository settings before wider launch. Public metadata audit on 2026-05-21 showed Discussions disabled.
 - [ ] Pin an issue using `pinned-issue-template.md` after launch.

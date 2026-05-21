@@ -29,7 +29,7 @@ Please avoid:
 
 ## How To Suggest A Resource
 
-Open an issue or pull request with:
+Open an issue, use [RESOURCE_REQUESTS.md](RESOURCE_REQUESTS.md), or submit a pull request with:
 
 - Resource title.
 - URL.
@@ -49,7 +49,7 @@ Production value: Helps debug empty results, blocked writes, and tenant isolatio
 
 ## How To Suggest A Production Incident
 
-Use this format for the Production Incident Index:
+Use [docs/community.md](docs/community.md) or this format for the Production Incident Index:
 
 ```md
 Symptom:
@@ -96,3 +96,17 @@ Pull requests are reviewed for:
 - Neutral, ecosystem-first wording.
 
 Small, focused pull requests are easiest to review.
+
+## Looking For Contributors
+
+The most helpful areas right now are:
+
+- RLS incidents and policy examples.
+- Deployment failures on Vercel and preview environments.
+- Maintained SaaS starter kits.
+- Monitoring, tracing, and uptime tools.
+- Supabase Auth edge cases around SSR cookies, OAuth, and magic links.
+- Stripe webhook reliability and subscription sync.
+- Realtime authorization and channel lifecycle issues.
+
+See [GOOD_FIRST_ISSUES.md](GOOD_FIRST_ISSUES.md) for small starting points.

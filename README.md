@@ -24,6 +24,7 @@ Use it when the demo works, the deployment does not, and you need the fastest pa
 - [Top Production Mistakes](#top-production-mistakes)
 - [Quick Triage](#quick-triage)
 - [Recently Added](#recently-added)
+- [Recently Updated](#recently-updated)
 - [Official References](#official-references)
 - [Resources](#resources)
 - [Tools](#tools)
@@ -255,6 +256,13 @@ Quick fixes that solve a surprising number of production incidents:
 - Local development, migration, type generation, testing, and monitoring references.
 - Link checking, contribution templates, issue templates, changelog, and maintainer signals.
 
+## Recently Updated
+
+- Added practical production checks, copy-paste fixes, and top production mistakes directly in the README.
+- Added awesome-list submission notes and clearer curation criteria.
+- Added launch materials for Reddit, Discord, LinkedIn, Twitter/X, and Dev.to.
+- Added contributor onboarding docs for good first issues, resource requests, and community participation.
+
 ## Official References
 
 - [Next.js Documentation](https://nextjs.org/docs) - Framework reference for App Router, rendering, caching, data fetching, and deployment.
@@ -384,7 +392,13 @@ Quick fixes that solve a surprising number of production incidents:
 
 ## Community
 
-This project gets better when real production failures are added back into the index.
+This project gets better when developers add real production failures, maintained tools, and clearer references back into the index.
+
+| Project Area                              | Use It For                                                                            |
+| ----------------------------------------- | ------------------------------------------------------------------------------------- |
+| [Community Guide](docs/community.md)      | How to contribute, suggest incidents, report outdated resources, and propose tooling. |
+| [Good First Issues](GOOD_FIRST_ISSUES.md) | Small contribution ideas for links, incidents, descriptions, and verification notes.  |
+| [Resource Requests](RESOURCE_REQUESTS.md) | Open areas where better docs, tools, examples, or starter kits would help.            |
 
 - [GitHub Issues](https://github.com/mahdibrr/awesome-nextjs-supabase/issues) - Suggest resources, report broken links, or describe a production failure.
 - [GitHub Pull Requests](https://github.com/mahdibrr/awesome-nextjs-supabase/pulls) - Add fixes, examples, checklists, or clearer debugging notes.
@@ -392,6 +406,8 @@ This project gets better when real production failures are added back into the i
 - [Next.js GitHub Discussions](https://github.com/vercel/next.js/discussions) - Framework questions, RFCs, and App Router behavior.
 
 Good contributions are specific, tested, and useful to someone shipping a real application.
+
+Help is especially welcome around RLS incidents, deployment failures, SaaS starter kits, monitoring tools, Auth edge cases, Stripe billing reliability, and Realtime behavior.
 
 ## Contributing
 
