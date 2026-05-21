@@ -4,15 +4,15 @@ Use this roadmap to move from a basic Next.js + Supabase app to production-ready
 
 ## 7-Day Next.js + Supabase Plan
 
-| Day | Focus | Outcome |
-|---|---|---|
-| 1 | App Router basics | Understand layouts, pages, route handlers, Server Components, and Client Components. |
-| 2 | Supabase project setup | Create a Supabase project, connect environment variables, and initialize the browser/server clients. |
-| 3 | Authentication | Add sign up, sign in, sign out, session refresh, and protected routes. |
-| 4 | Database and RLS | Create tables, enable RLS, write policies, and test authenticated reads/writes. |
-| 5 | CRUD and file uploads | Build real forms, mutations, storage uploads, and server-side validation. |
-| 6 | Realtime and background work | Add realtime subscriptions, webhooks, scheduled work, or async job patterns. |
-| 7 | Production launch | Audit env vars, deployment, security, performance, backups, observability, and billing readiness. |
+| Day | Focus                        | Outcome                                                                                              |
+| --- | ---------------------------- | ---------------------------------------------------------------------------------------------------- |
+| 1   | App Router basics            | Understand layouts, pages, route handlers, Server Components, and Client Components.                 |
+| 2   | Supabase project setup       | Create a Supabase project, connect environment variables, and initialize the browser/server clients. |
+| 3   | Authentication               | Add sign up, sign in, sign out, session refresh, and protected routes.                               |
+| 4   | Database and RLS             | Create tables, enable RLS, write policies, and test authenticated reads/writes.                      |
+| 5   | CRUD and file uploads        | Build real forms, mutations, storage uploads, and server-side validation.                            |
+| 6   | Realtime and background work | Add realtime subscriptions, webhooks, scheduled work, or async job patterns.                         |
+| 7   | Production launch            | Audit env vars, deployment, security, performance, backups, observability, and billing readiness.    |
 
 ## Beginner Roadmap
 
@@ -27,9 +27,10 @@ Start here if you are still learning how the stack fits together.
 
 Recommended resources:
 
-- [Next.js App Router Complete Guide](https://www.iloveblogs.blog/guides/nextjs-app-router-complete-guide)
-- [Build a Full-Stack App with Next.js and Supabase](https://www.iloveblogs.blog/post/build-fullstack-app-nextjs-supabase-step-by-step)
-- [Supabase Authentication with Next.js 15 Complete Production Guide](https://www.iloveblogs.blog/guides/supabase-auth-nextjs-complete-guide-2026)
+- [Next.js App Router](https://nextjs.org/docs/app)
+- [Use Supabase with Next.js](https://supabase.com/docs/guides/getting-started/quickstarts/nextjs)
+- [Vercel with-supabase Example](https://github.com/vercel/next.js/tree/canary/examples/with-supabase)
+- [Build a Full-Stack App with Next.js and Supabase](https://blog.logrocket.com/build-full-stack-app-next-js-supabase/)
 
 ## Intermediate Roadmap
 
@@ -45,10 +46,11 @@ Move here once you can build a basic authenticated app.
 
 Recommended resources:
 
-- [Next.js App Router + Supabase SSR Session Management](https://www.iloveblogs.blog/guides/nextjs-supabase-ssr-session-management)
-- [Supabase RLS Policy Design Patterns](https://www.iloveblogs.blog/guides/supabase-rls-policy-design-patterns)
-- [Next.js Data Fetching Patterns with Supabase](https://www.iloveblogs.blog/guides/nextjs-supabase-data-fetching-patterns)
-- [Supabase Storage: Complete Guide](https://www.iloveblogs.blog/guides/supabase-storage-file-uploads)
+- [Supabase Server-Side Auth](https://supabase.com/docs/guides/auth/server-side)
+- [Supabase Row Level Security](https://supabase.com/docs/guides/database/postgres/row-level-security)
+- [Next.js Route Handlers](https://nextjs.org/docs/app/api-reference/file-conventions/route)
+- [Supabase Storage](https://supabase.com/docs/guides/storage)
+- [Supabase Auth and Middleware Session Management](https://www.iloveblogs.blog/guides/supabase-auth-complete-session-middleware-guide)
 
 ## Advanced Roadmap
 
@@ -64,27 +66,29 @@ Use this path for SaaS, scale, security, and production engineering.
 
 Recommended resources:
 
+- [Supabase Going Into Production](https://supabase.com/docs/guides/deployment/going-into-prod)
+- [Vercel Production Checklist](https://vercel.com/docs/production-checklist)
+- [Stripe Webhooks](https://docs.stripe.com/webhooks)
+- [Sentry for Next.js](https://docs.sentry.io/platforms/javascript/guides/nextjs/)
+- [Playwright](https://playwright.dev/docs/intro)
 - [Multi-Tenant SaaS Architecture with Next.js and Supabase](https://www.iloveblogs.blog/guides/nextjs-supabase-multi-tenant-saas-architecture)
 - [Supabase Connection Pooling with PgBouncer on Vercel](https://www.iloveblogs.blog/guides/supabase-connection-pooling-vercel)
-- [Next.js & Supabase Stripe Subscriptions](https://www.iloveblogs.blog/guides/nextjs-supabase-stripe-subscriptions-guide)
-- [Testing Next.js + Supabase](https://www.iloveblogs.blog/guides/nextjs-supabase-testing-strategies)
 - [Mastering Supabase pgvector for Semantic Search in Next.js](https://www.iloveblogs.blog/guides/nextjs-supabase-pgvector-advanced-search)
 
 ## External Production Resources
 
 Use these external references to learn from primary sources and production-grade examples.
 
-| Resource | Type | Why It Helps |
-|---|---|---|
-| [Next.js Documentation](https://nextjs.org/docs) | Official docs | Core framework reference for App Router, rendering, caching, and deployment behavior. |
-| [Next.js App Router](https://nextjs.org/docs/app) | Official docs | Best starting point for layouts, routing, Server Components, loading UI, and route handlers. |
-| [Next.js Mutating Data](https://nextjs.org/docs/app/getting-started/mutating-data) | Official docs | Current guidance for forms, mutations, and Server Actions. |
-| [Supabase Documentation](https://supabase.com/docs) | Official docs | Primary reference for Supabase Auth, Postgres, Storage, Realtime, Edge Functions, and local development. |
-| [Supabase Server-Side Auth](https://supabase.com/docs/guides/auth/server-side) | Official docs | Required reading for cookie-based auth in SSR and App Router applications. |
-| [Supabase Row Level Security](https://supabase.com/docs/guides/database/postgres/row-level-security) | Official docs | Foundation for production-safe authorization in Postgres. |
-| [Supabase CLI Getting Started](https://supabase.com/docs/guides/local-development/cli/getting-started) | Official tool docs | Learn local Supabase development, migrations, seed data, and environment parity. |
-| [Vercel Next.js Deployment](https://vercel.com/docs/frameworks/nextjs) | Official docs | Production deployment reference for Next.js on Vercel. |
-| [Stripe Billing](https://docs.stripe.com/billing) | Official docs | Billing model reference for subscriptions, invoices, customers, and pricing. |
-| [GitHub Actions](https://docs.github.com/en/actions) | Official docs | CI/CD foundation for testing, deployments, and scheduled automation. |
-| [vercel/next.js with-supabase example](https://github.com/vercel/next.js/tree/canary/examples/with-supabase) | GitHub repo | Official Next.js example showing Supabase integration patterns. |
-| [supabase/supabase](https://github.com/supabase/supabase) | GitHub repo | Main Supabase open-source repository and issue history for platform behavior. |
+| Resource                                                                                               | Type               | Why It Helps                                                                                               |
+| ------------------------------------------------------------------------------------------------------ | ------------------ | ---------------------------------------------------------------------------------------------------------- |
+| [Next.js Documentation](https://nextjs.org/docs)                                                       | Official docs      | Core framework reference for App Router, rendering, caching, and deployment behavior.                      |
+| [Next.js Mutating Data](https://nextjs.org/docs/app/getting-started/mutating-data)                     | Official docs      | Current guidance for forms, mutations, and Server Actions.                                                 |
+| [Supabase Documentation](https://supabase.com/docs)                                                    | Official docs      | Primary reference for Supabase Auth, PostgreSQL, Storage, Realtime, Edge Functions, and local development. |
+| [Supabase CLI Getting Started](https://supabase.com/docs/guides/local-development/cli/getting-started) | Official tool docs | Learn local Supabase development, migrations, seed data, and environment parity.                           |
+| [Vercel Next.js Deployment](https://vercel.com/docs/frameworks/nextjs)                                 | Official docs      | Production deployment reference for Next.js on Vercel.                                                     |
+| [Stripe Billing](https://docs.stripe.com/billing)                                                      | Official docs      | Billing model reference for subscriptions, invoices, customers, and pricing.                               |
+| [GitHub Actions](https://docs.github.com/en/actions)                                                   | Official docs      | CI/CD foundation for testing, deployments, and scheduled automation.                                       |
+| [supabase/supabase](https://github.com/supabase/supabase)                                              | GitHub repo        | Main Supabase open-source repository and issue history for platform behavior.                              |
+| [Drizzle with Supabase](https://supabase.com/docs/guides/database/drizzle)                             | Official docs      | Type-safe SQL workflow for teams that prefer schema-first database access.                                 |
+| [Prisma with Next.js](https://www.prisma.io/docs/guides/nextjs)                                        | Official docs      | Alternative ORM workflow for teams using Prisma Client and Prisma Migrate.                                 |
+| [shadcn/ui](https://ui.shadcn.com/docs)                                                                | UI toolkit         | Practical component baseline for dashboards, forms, and SaaS settings screens.                             |

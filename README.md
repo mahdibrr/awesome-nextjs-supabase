@@ -21,11 +21,13 @@ Built for developers who need practical references, real examples, production ch
 - [Database, RLS, and PostgreSQL](#database-rls-and-postgresql)
 - [SaaS Architecture](#saas-architecture)
 - [Open Source Starters](#open-source-starters)
+- [Local Development](#local-development)
+- [Database Migrations and Type Generation](#database-migrations-and-type-generation)
 - [Stripe and Billing](#stripe-and-billing)
 - [Realtime Apps](#realtime-apps)
 - [Performance and Caching](#performance-and-caching)
 - [AI, pgvector, and RAG](#ai-pgvector-and-rag)
-- [Testing, CI/CD, and Deployment](#testing-cicd-and-deployment)
+- [Testing, Monitoring, and Deployment](#testing-monitoring-and-deployment)
 - [Production Fixes](#production-fixes)
 - [Comparisons and Decision Guides](#comparisons-and-decision-guides)
 - [Community and Discussions](#community-and-discussions)
@@ -90,22 +92,21 @@ It maps real symptoms to likely root causes, fixes, verification steps, snippets
 
 ## Next.js and App Router
 
-- [React Server Components: Complete Deep Dive](https://www.iloveblogs.blog/guides/react-server-components-deep-dive) - RSC architecture, data fetching patterns, streaming, and production tradeoffs.
 - [Making Sense of React Server Components](https://www.joshwcomeau.com/react/server-components/) - Clear mental model for React Server Components and how they differ from SSR.
 - [Understanding React Server Components](https://vercel.com/blog/understanding-react-server-components) - Vercel's architectural breakdown of RSCs and data flow.
 - [Understanding App Directory Architecture in Next.js](https://www.smashingmagazine.com/2023/02/understanding-app-directory-architecture-next-js/) - Smashing Magazine deep dive into App Router structure and tradeoffs.
+- [Lee Robinson on Next.js](https://leerob.com/) - Practical writing and examples from a long-time Next.js maintainer and Vercel educator.
+- [T3 Stack](https://create.t3.gg/) - Type-safe full-stack Next.js conventions for teams that want opinionated defaults.
 - [Next.js App Router Complete Guide](https://www.iloveblogs.blog/guides/nextjs-app-router-complete-guide) - Routing, layouts, Server Components, loading states, and advanced patterns.
-- [Next.js Data Fetching Patterns with Supabase](https://www.iloveblogs.blog/guides/nextjs-supabase-data-fetching-patterns) - Server Components, streaming, parallel queries, caching, and Supabase data access.
-- [Next.js Server Actions with Supabase](https://www.iloveblogs.blog/guides/nextjs-server-actions-supabase-complete-guide) - Type-safe mutations, validation, error handling, and optimistic updates.
 
 ## Supabase Auth and Security
 
 - [Supabase Auth Quickstart for Next.js](https://supabase.com/docs/guides/auth/quickstarts/nextjs) - Official quickstart for Auth setup, middleware configuration, and protected routes.
 - [Build a Full-Stack App with Next.js and Supabase](https://blog.logrocket.com/build-full-stack-app-next-js-supabase/) - LogRocket walkthrough covering Auth, RLS, and deployment basics.
+- [Supabase Auth UI React](https://github.com/supabase/auth-ui) - Official Auth UI components for teams that need a fast baseline before custom UI.
+- [Supabase SSR Package](https://github.com/supabase/ssr) - Official server-side auth helpers for cookie-based SSR sessions.
 - [Supabase Authentication and Authorization Patterns](https://www.iloveblogs.blog/guides/supabase-authentication-authorization) - Email/password Auth, magic links, OAuth, RBAC, RLS, and authorization models.
 - [Supabase Auth and Middleware Session Management](https://www.iloveblogs.blog/guides/supabase-auth-complete-session-middleware-guide) - Middleware, cookies, session refresh, and route protection.
-- [Advanced Authentication Patterns with Next.js and Supabase](https://www.iloveblogs.blog/guides/nextjs-supabase-advanced-authentication-patterns) - OAuth, passwordless Auth, custom JWTs, multi-tenant Auth, and enterprise SSO.
-- [Supabase Google OAuth on Next.js](https://www.iloveblogs.blog/guides/supabase-google-oauth-nextjs-15-complete-guide) - Google OAuth setup, redirect allowlists, and callback routes.
 - [Next.js and Supabase Security Best Practices](https://www.iloveblogs.blog/guides/nextjs-supabase-security-best-practices) - RLS policies, secret management, API security, and Auth hardening.
 
 ## Database, RLS, and PostgreSQL
@@ -113,29 +114,47 @@ It maps real symptoms to likely root causes, fixes, verification steps, snippets
 - [RLS Performance and Best Practices](https://supabase.com/docs/guides/troubleshooting/rls-performance-and-best-practices-Z5Jjwv) - Official Supabase guide for indexing policies and avoiding slow RLS checks.
 - [Supabase Security Suite](https://supabase.com/blog/hardening-supabase) - Production hardening for RLS, Column Level Security, and network restrictions.
 - [PostgreSQL EXPLAIN](https://www.postgresql.org/docs/current/using-explain.html) - Official PostgreSQL query-plan reference for debugging slow queries.
+- [Supabase Database Functions](https://supabase.com/docs/guides/database/functions) - Official reference for PostgreSQL functions, security mode, and RPC patterns.
+- [Supabase Connection Pooler](https://supabase.com/docs/guides/database/connecting-to-postgres#connection-pooler) - Required production reference for serverless and pooled database access.
 - [Database Design and Optimization for Next.js and Supabase](https://www.iloveblogs.blog/guides/nextjs-supabase-database-design-optimization) - PostgreSQL schema design, indexing, query optimization, and scaling patterns.
 - [Database Migration Strategies for Production Supabase Apps](https://www.iloveblogs.blog/guides/nextjs-supabase-migration-strategies) - Zero-downtime migrations, rollback strategies, and schema versioning.
-- [Supabase PostgreSQL Functions and Triggers](https://www.iloveblogs.blog/guides/supabase-postgres-functions-triggers-guide) - PL/pgSQL, automated workflows, business logic, and database validation.
-- [Supabase Connection Pooling with PgBouncer on Vercel](https://www.iloveblogs.blog/guides/supabase-connection-pooling-vercel) - Serverless connection pooling, pool modes, and deployment tuning.
 
 ## SaaS Architecture
 
+- [SaaS Starter by Next.js](https://github.com/nextjs/saas-starter) - Official starter using Next.js, PostgreSQL, Drizzle ORM, Stripe, and shadcn/ui.
+- [Vercel Subscription Payments](https://github.com/vercel/nextjs-subscription-payments) - Reference implementation for subscriptions with Next.js, Supabase, and Stripe.
+- [Theo Browne](https://t3.gg/) - Practical opinions on full-stack TypeScript, SaaS architecture, and maintainable defaults.
+- [shadcn/ui Blocks](https://ui.shadcn.com/blocks) - Production-ready dashboard and application blocks for SaaS interfaces.
 - [Complete Guide to Building SaaS with Next.js and Supabase](https://www.iloveblogs.blog/guides/building-saas-nextjs-supabase) - End-to-end SaaS architecture, database design, Auth, deployment, and production concerns.
 - [Multi-Tenant SaaS Architecture with Next.js and Supabase](https://www.iloveblogs.blog/guides/nextjs-supabase-multi-tenant-saas-architecture) - Tenant isolation, RLS policies, subdomain routing, and billing integration.
 - [Next.js and Supabase Production Launch Checklist](https://www.iloveblogs.blog/guides/nextjs-supabase-production-launch-checklist) - Production checklist across Auth, RLS, performance, observability, and deployment.
-- [Background Jobs and Async Task Patterns](https://www.iloveblogs.blog/guides/nextjs-supabase-background-jobs-async-patterns) - Database queues, scheduled jobs, Edge Functions, and async task design.
-- [Next.js Webhook Handling and Event-Driven Architecture](https://www.iloveblogs.blog/guides/nextjs-supabase-webhook-event-architecture) - Webhook signatures, retries, event modeling, and distributed workflows.
-- [Scaling Next.js and Supabase from 0 to 100K Users](https://www.iloveblogs.blog/guides/scaling-nextjs-supabase-0-to-100k-users-playbook) - Connection pooling, caching layers, read replicas, queues, and scale planning.
 
 ## Open Source Starters
 
-- [Next.js SaaS Starter](https://github.com/nextjs/saas-starter) - Official Next.js SaaS starter with PostgreSQL, Drizzle ORM, Stripe subscriptions, and shadcn/ui.
-- [Vercel Subscription Payments](https://github.com/vercel/nextjs-subscription-payments) - Reference app for Next.js, Supabase, and Stripe subscriptions.
 - [Vercel with-supabase Example](https://github.com/vercel/next.js/tree/canary/examples/with-supabase) - Official Next.js and Supabase example with App Router and cookie-based Auth.
 - [KolbySisk/next-supabase-stripe-starter](https://github.com/KolbySisk/next-supabase-stripe-starter) - SaaS starter with Next.js, Supabase, Stripe, React Email, and shadcn/ui.
 - [makerkit/nextjs-saas-starter-kit-lite](https://github.com/makerkit/nextjs-saas-starter-kit-lite) - Lite open-source SaaS starter based on Next.js and Supabase.
 - [antoineross/Hikari](https://github.com/antoineross/Hikari) - Open-source Next.js, Stripe, and Supabase SaaS template using App Router.
 - [t3-oss/create-t3-app](https://github.com/t3-oss/create-t3-app) - Popular TypeScript-first Next.js starter with a strong full-stack architecture model.
+- [shadcn Taxonomy](https://github.com/shadcn-ui/taxonomy) - Real-world app structure reference for Next.js, content, auth-adjacent flows, and UI composition.
+
+## Local Development
+
+- [Supabase CLI](https://supabase.com/docs/guides/local-development/cli/getting-started) - Local projects, database reset, migrations, seeds, and generated types.
+- [Supabase Local Development](https://supabase.com/docs/guides/local-development) - Official workflow for running the Supabase stack locally.
+- [Next.js Environment Variables](https://nextjs.org/docs/app/guides/environment-variables) - Correct handling for server-only secrets and public client variables.
+- [Vercel Environment Variables](https://vercel.com/docs/projects/environment-variables) - Production, preview, and development environment scoping.
+- [shadcn/ui Installation for Next.js](https://ui.shadcn.com/docs/installation/next) - Common UI foundation for dashboards, settings pages, and SaaS workflows.
+- [Docker Compose](https://docs.docker.com/compose/) - Useful baseline for local dependencies around PostgreSQL, queues, and support services.
+
+## Database Migrations and Type Generation
+
+- [Supabase Database Migrations](https://supabase.com/docs/guides/local-development/overview) - Official migration workflow with local development and remote projects.
+- [Generating TypeScript Types](https://supabase.com/docs/guides/api/rest/generating-types) - Generate database types from Supabase schemas for safer app code.
+- [Drizzle with Supabase](https://supabase.com/docs/guides/database/drizzle) - Official Supabase guide for using Drizzle ORM with a Supabase database.
+- [Drizzle Migrations](https://orm.drizzle.team/docs/migrations) - Drizzle Kit migration generation and migration folder workflow.
+- [Prisma with Next.js](https://www.prisma.io/docs/guides/nextjs) - Prisma's official Next.js guide for schema, queries, and deployment setup.
+- [Prisma Migrate](https://www.prisma.io/docs/orm/prisma-migrate) - Migration workflow reference for teams choosing Prisma instead of direct Supabase client queries.
 
 ## Stripe and Billing
 
@@ -143,26 +162,28 @@ It maps real symptoms to likely root causes, fixes, verification steps, snippets
 - [Stripe Launch Checklist](https://docs.stripe.com/get-started/account/checklist) - Official Stripe checklist before taking real payments.
 - [stripe-samples/subscription-use-cases](https://github.com/stripe-samples/subscription-use-cases) - Official Stripe samples for fixed-price and usage-based subscriptions.
 - [stripe-samples/checkout-single-subscription](https://github.com/stripe-samples/checkout-single-subscription) - Official sample for single-subscription checkout flows.
+- [Stripe Customer Portal](https://docs.stripe.com/customer-management) - Official reference for subscription management, invoices, and customer self-service.
+- [Stripe Testing](https://docs.stripe.com/testing) - Test cards, clocks, and integration checks before production billing.
 - [Next.js and Supabase Stripe Subscriptions Guide](https://www.iloveblogs.blog/guides/nextjs-supabase-stripe-subscriptions-guide) - Webhooks, user syncing, gated content, and subscription state.
-- [SaaS Pricing Strategies That Convert](https://www.iloveblogs.blog/post/saas-pricing-strategies-2026) - Pricing models, packaging, and monetization decisions for SaaS products.
 
 ## Realtime Apps
 
 - [Supabase Realtime](https://supabase.com/docs/guides/realtime) - Official reference for Broadcast, Presence, and PostgreSQL Changes.
 - [Using Realtime with Next.js](https://supabase.com/docs/guides/realtime/realtime-with-nextjs) - Official Supabase guide for Realtime in Next.js applications.
 - [Subscribing to Database Changes](https://supabase.com/docs/guides/realtime/subscribing-to-database-changes) - Official setup for PostgreSQL Changes, RLS requirements, and filtering.
+- [Realtime Authorization](https://supabase.com/docs/guides/realtime/authorization) - Role-based authorization for Realtime channels and Broadcast.
 - [Supabase Realtime Complete Guide](https://www.iloveblogs.blog/guides/supabase-realtime-complete-guide) - Chat, notifications, collaborative editing, Broadcast, Presence, and change feeds.
 - [Build a Real-Time Chat App with Next.js and Supabase](https://www.iloveblogs.blog/guides/nextjs-supabase-realtime-chat-app-complete-build) - Schema design, RLS policies, channels, presence, typing indicators, and messages.
-- [Building Real-Time Collaboration Features](https://www.iloveblogs.blog/guides/nextjs-supabase-realtime-collaboration) - Presence tracking, live cursors, collaborative editing, and conflict resolution.
 
 ## Performance and Caching
 
 - [Vercel Data Cache for Next.js](https://vercel.com/blog/vercel-cache-api-nextjs-cache) - Deep dive into cache APIs and production caching behavior.
 - [How to Maintain a Large Next.js Application](https://www.smashingmagazine.com/2021/11/maintain-large-nextjs-application/) - Smashing Magazine on organization, performance budgets, and maintainability.
 - [Lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci) - Automated Lighthouse checks for performance and quality in CI.
+- [Next.js Caching and Revalidating](https://nextjs.org/docs/app/getting-started/caching-and-revalidating) - Official caching model for App Router data, routes, and invalidation.
+- [Vercel Speed Insights](https://vercel.com/docs/speed-insights) - Real user performance monitoring for deployed applications.
 - [Next.js Performance Optimization for Indie Developers](https://www.iloveblogs.blog/guides/nextjs-performance-optimization) - Core Web Vitals, image optimization, bundle size, and caching.
 - [Advanced Caching Strategies for Next.js and Supabase](https://www.iloveblogs.blog/guides/nextjs-supabase-caching-strategies) - Redis, ISR, SWR, cache invalidation, and performance tuning.
-- [Next.js Caching Explained](https://www.iloveblogs.blog/post/nextjs-15-caching-explained) - Practical explanation of fetch caching, revalidation, and stale data issues.
 
 ## AI, pgvector, and RAG
 
@@ -171,36 +192,37 @@ It maps real symptoms to likely root causes, fixes, verification steps, snippets
 - [mayooear/langchain-supabase-website-chatbot](https://github.com/mayooear/langchain-supabase-website-chatbot) - Website chatbot using LangChain, Supabase, TypeScript, OpenAI, and Next.js.
 - [Vercel AI Chatbot](https://github.com/vercel/chatbot) - High-quality AI chat architecture reference for Next.js applications.
 - [AI Integration for Next.js and Supabase Applications](https://www.iloveblogs.blog/guides/ai-integration-nextjs-supabase) - OpenAI integration, chat interfaces, vector search, and RAG systems.
-- [Mastering Supabase pgvector for Semantic Search](https://www.iloveblogs.blog/guides/nextjs-supabase-pgvector-advanced-search) - Embeddings, pgvector, Server Actions, and semantic search patterns.
 
-## Testing, CI/CD, and Deployment
+## Testing, Monitoring, and Deployment
 
 - [Vercel Production Checklist](https://vercel.com/docs/production-checklist) - Production-readiness checks for Vercel applications.
 - [Vercel Runtime Logs](https://vercel.com/docs/logs/runtime) - Runtime logs for production debugging and deployment visibility.
 - [Playwright](https://playwright.dev/docs/intro) - End-to-end testing framework for browser flows.
+- [Playwright Test Configuration](https://playwright.dev/docs/test-configuration) - Configure projects, retries, web servers, and CI-friendly browser tests.
 - [Sentry for Next.js](https://docs.sentry.io/platforms/javascript/guides/nextjs/) - Error monitoring setup for Next.js apps.
+- [LogRocket Blog](https://blog.logrocket.com/) - Practical debugging and frontend production articles.
+- [PostHog Docs](https://posthog.com/docs) - Product analytics, feature flags, session replay, and funnels for SaaS apps.
 - [Checkly](https://www.checklyhq.com/docs/) - Synthetic monitoring and API checks for production apps.
 - [Testing Next.js and Supabase](https://www.iloveblogs.blog/guides/nextjs-supabase-testing-strategies) - Unit, integration, RLS, and E2E testing strategies.
-- [Next.js and Supabase CI/CD Pipelines](https://www.iloveblogs.blog/guides/nextjs-supabase-cicd-github-actions-production) - GitHub Actions, branch previews, migrations, and Vercel deployment.
 
 ## Production Fixes
 
 - [Next.js Hydration Error Guide](https://nextjs.org/docs/messages/react-hydration-error) - Official guide to hydration mismatch causes and fixes.
 - [Supabase Troubleshooting](https://supabase.com/docs/guides/troubleshooting) - Official troubleshooting entry point for platform and project issues.
 - [Chrome DevTools Network Panel](https://developer.chrome.com/docs/devtools/network/) - Debug failed requests, redirects, cookies, headers, and responses.
+- [Sentry Tracing](https://docs.sentry.io/platforms/javascript/guides/nextjs/tracing/) - Trace slow requests, route handlers, and client interactions.
 - [Next.js Hydration Mismatch Error Fixes](https://www.iloveblogs.blog/post/nextjs-hydration-mismatch-fix) - App Router and React causes, diagnostics, and fixes.
 - [Fix Next.js Module Not Found After Deploy](https://www.iloveblogs.blog/post/nextjs-build-module-not-found) - Case-sensitive imports, missing dependencies, path aliases, and deployment failures.
-- [Next.js Turbopack Stuck Compiling](https://www.iloveblogs.blog/post/nextjs-turbopack-stuck-fix) - Cache resets, circular imports, dependency issues, and fallback strategies.
 - [Supabase Auth Redirect Not Working](https://www.iloveblogs.blog/post/supabase-auth-redirect-fix) - OAuth callbacks, magic links, redirect allowlists, and App Router fixes.
 
 ## Comparisons and Decision Guides
 
+- [Drizzle ORM](https://orm.drizzle.team/docs/overview) - Type-safe SQL ORM with a lightweight model for teams that prefer SQL-first workflows.
+- [Prisma ORM](https://www.prisma.io/docs/orm) - Mature ORM documentation for schema modeling, migrations, and generated client workflows.
+- [Supabase Pricing](https://supabase.com/pricing) - Official pricing reference for project limits and paid features.
 - [Next.js Server Actions vs API Routes](https://www.iloveblogs.blog/post/nextjs-server-actions-vs-api-routes) - When to use Server Actions, route handlers, and traditional API routes.
 - [Next.js Authentication Comparison](https://www.iloveblogs.blog/post/nextjs-authentication-comparison-2026) - Clerk, Better Auth, Supabase Auth, and Auth.js tradeoffs.
 - [Supabase vs Firebase](https://www.iloveblogs.blog/post/supabase-vs-firebase-2026-complete-comparison) - Database, Auth, real-time, storage, pricing, and developer experience.
-- [Supabase vs Firebase Authentication](https://www.iloveblogs.blog/post/supabase-vs-firebase-auth-2026) - Auth features, pricing, performance, and production fit.
-- [Supabase Free Tier Limits](https://www.iloveblogs.blog/post/supabase-free-tier-limits-2026) - Database size, bandwidth, Auth users, Storage, and Edge Function limits.
-- [TypeScript Migration Guide](https://www.iloveblogs.blog/post/typescript-javascript-migration-guide-2026) - Incremental migration strategy for JavaScript projects.
 
 ## Community and Discussions
 

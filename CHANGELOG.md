@@ -4,6 +4,7 @@ All notable repository changes are documented here.
 
 ## 2026-05-21
 
+- Diversified README and learning-path resources with more official docs, ecosystem tools, open-source examples, monitoring references, and migration/type-generation guidance.
 - Added Production Incident Index with symptom-first debugging references across Auth, RLS, deployment, caching, billing, database, and Realtime incidents.
 - Improved README structure for awesome-list compatibility.
 - Moved the table of contents to the first section after the intro.
