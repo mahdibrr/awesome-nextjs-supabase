@@ -12,6 +12,7 @@ Built for developers who need practical references, real examples, production ch
 
 - [Recently Added](#recently-added)
 - [Use Cases](#use-cases)
+- [Most Common Production Failures](#most-common-production-failures)
 - [Production Problems Covered](#production-problems-covered)
 - [Documentation Hub](#documentation-hub)
 - [Official References](#official-references)
@@ -47,6 +48,12 @@ Recent foundation updates focus on community trust and practical usefulness:
 | Fix production issues | Debugging playbooks for RLS, hydration errors, redirects, deployment, and API failures. |
 | Speed up development  | Starter kits, snippets, open-source examples, and official docs in one place.           |
 
+## Most Common Production Failures
+
+Start with the [Production Incident Index](content/incidents/README.md) when debugging symptoms like "Supabase returns empty array", "Next.js auth session lost after refresh", "RLS silently fails", or "middleware redirect loop".
+
+It maps real symptoms to likely root causes, fixes, verification steps, snippets, and references across Auth, RLS, deployment, caching, billing, database, and Realtime incidents.
+
 ## Production Problems Covered
 
 - Auth sessions, OAuth redirects, cookies, protected routes, and middleware.
@@ -63,6 +70,7 @@ Recent foundation updates focus on community trust and practical usefulness:
 | [Learning Paths](content/learning-paths/README.md)               | Seven-day roadmap from beginner setup to production SaaS patterns. |
 | [Starter Kits](content/starter-kits/README.md)                   | SaaS, Auth, Stripe, realtime, and dashboard starter ideas.         |
 | [Open Source Examples](content/open-source-examples/README.md)   | Real GitHub projects using Next.js and Supabase.                   |
+| Production Incident Index                                        | Symptom-first debugging reference for common production failures.  |
 | [Production Checklists](content/production-checklists/README.md) | Auth, RLS, deployment, Stripe, performance, and security checks.   |
 | [Snippets](content/snippets/README.md)                           | Supabase Auth, middleware, RLS, and API helper snippets.           |
 | [Debugging Playbook](content/debugging-playbook/README.md)       | Common Auth, RLS, hydration, API, and deployment fixes.            |
