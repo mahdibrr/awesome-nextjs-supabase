@@ -19,6 +19,9 @@ Use it when the demo works, the deployment does not, and you need the fastest pa
 - [Start Here](#start-here)
 - [Most Useful Sections](#most-useful-sections)
 - [Production Failure Categories](#production-failure-categories)
+- [Quick Production Checks](#quick-production-checks)
+- [Copy-Paste Fixes](#copy-paste-fixes)
+- [Top Production Mistakes](#top-production-mistakes)
 - [Quick Triage](#quick-triage)
 - [Recently Added](#recently-added)
 - [Official References](#official-references)
@@ -104,6 +107,104 @@ The list prioritizes:
 | Billing    | Checkout succeeds but the app still shows free plan. | Verify webhook signature, idempotency, and subscription table updates. |
 | Deployment | Works locally, fails on Vercel.                      | Compare production, preview, and local environment variables.          |
 | Realtime   | Chat or presence works for admins only.              | Check Realtime enablement, channel cleanup, and RLS visibility.        |
+
+## Quick Production Checks
+
+Run these before blaming the framework.
+
+| Check                     | Command Or Probe                                            | Passes When                                                            |
+| ------------------------- | ----------------------------------------------------------- | ---------------------------------------------------------------------- |
+| Verify RLS                | Query with the anon/authenticated client, not service role. | Existing rows are visible only to the intended user.                   |
+| Verify Auth persistence   | Refresh a protected SSR page after login.                   | Server code still sees `auth.getUser()`.                               |
+| Verify SSR cookies        | Inspect `Set-Cookie` and request cookies in Network tab.    | Auth cookies are present on protected requests.                        |
+| Verify Stripe webhooks    | Replay an event with Stripe CLI or dashboard logs.          | Signature verifies and the subscription row updates once.              |
+| Verify middleware         | `curl -I /login`, `/auth/callback`, and `/dashboard`.       | Login/callback are not trapped in a redirect loop.                     |
+| Verify cache invalidation | Mutate data, refresh, then check the same route.            | Fresh data appears after `revalidatePath` or `revalidateTag`.          |
+| Verify env vars           | Compare local, preview, and production settings.            | URL, anon key, webhook secret, and callback URL match the environment. |
+
+## Copy-Paste Fixes
+
+Use these as starting points, then narrow them to your app.
+
+```sql
+-- RLS: user-owned rows.
+create policy "Users can read own rows"
+on public.todos
+for select
+to authenticated
+using (user_id = auth.uid());
+```
+
+```sql
+-- RLS: team-owned rows through membership.
+create policy "Members can read team rows"
+on public.projects
+for select
+to authenticated
+using (
+  exists (
+    select 1
+    from public.memberships m
+    where m.team_id = projects.team_id
+      and m.user_id = auth.uid()
+  )
+);
+```
+
+```ts
+// Auth guard for route handlers and Server Components.
+const {
+  data: { user },
+  error,
+} = await supabase.auth.getUser();
+
+if (error || !user) {
+  return new Response("Unauthorized", { status: 401 });
+}
+```
+
+```ts
+// App Router cache fix after a Server Action mutation.
+import { revalidatePath } from "next/cache";
+
+await updateProject(input);
+revalidatePath("/dashboard/projects");
+```
+
+```ts
+// Minimal env validation at startup.
+const required = [
+  "NEXT_PUBLIC_SUPABASE_URL",
+  "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+  "STRIPE_WEBHOOK_SECRET",
+];
+
+for (const key of required) {
+  if (!process.env[key]) throw new Error(`Missing env var: ${key}`);
+}
+```
+
+```ts
+// Middleware matcher: avoid protecting auth callback/static assets.
+export const config = {
+  matcher: [
+    "/((?!_next/static|_next/image|favicon.ico|login|auth/callback).*)",
+  ],
+};
+```
+
+## Top Production Mistakes
+
+- Trusting `service_role` in client code instead of testing with anon/authenticated users.
+- Enabling RLS without adding `select`, `insert`, `update`, and `delete` policies for real flows.
+- Writing an `update` policy with `using` but forgetting `with check`.
+- Forgetting `revalidatePath` or `revalidateTag` after Server Actions.
+- Protecting `/login` or `/auth/callback` in middleware and creating a redirect loop.
+- Setting Supabase Site URL to localhost while production uses a real domain.
+- Using the test Stripe webhook secret in production.
+- Not storing processed Stripe event IDs, causing duplicate billing state changes.
+- Reading browser-only values during server render and causing hydration mismatch.
+- Subscribing to Realtime channels without removing them on cleanup.
 
 ## Quick Triage
 

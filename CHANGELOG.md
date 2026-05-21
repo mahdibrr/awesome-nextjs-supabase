@@ -4,6 +4,7 @@ All notable repository changes are documented here.
 
 ## 2026-05-21
 
+- Added practical README utilities with quick production checks, copy-paste fixes, and top production mistakes.
 - Added awesome-list submission notes, clearer curation criteria, and expanded contribution guidelines for resource and incident suggestions.
 - Added launch readiness checklist, community launch plan, platform-specific post drafts, and pinned issue template for public distribution.
 - Repositioned the README as a production war-room reference with sharper navigation, quick triage notes, failure categories, and community CTAs.
