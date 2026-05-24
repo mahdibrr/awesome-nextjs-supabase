@@ -92,3 +92,8 @@ Use these external references to learn from primary sources and production-grade
 | [Drizzle with Supabase](https://supabase.com/docs/guides/database/drizzle)                             | Official docs      | Type-safe SQL workflow for teams that prefer schema-first database access.                                 |
 | [Prisma with Next.js](https://www.prisma.io/docs/guides/nextjs)                                        | Official docs      | Alternative ORM workflow for teams using Prisma Client and Prisma Migrate.                                 |
 | [shadcn/ui](https://ui.shadcn.com/docs)                                                                | UI toolkit         | Practical component baseline for dashboards, forms, and SaaS settings screens.                             |
+## Production Cross-Links
+
+- Incident Index row: [INC-005 Session disappears after refresh](../../reference/incident-index/README.md#inc-005-session-disappears-after-refresh-in-ssr)
+- Reference asset: [Zero-downtime rollout checklist](../../reference/checklists/zero-downtime-rollout-checklist.md)
+- Hub page: [Documentation Hub](../README.md)

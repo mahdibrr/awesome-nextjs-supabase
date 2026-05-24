@@ -82,3 +82,8 @@ Use these external references and tools to harden a real production app.
 | [Sentry for Next.js](https://docs.sentry.io/platforms/javascript/guides/nextjs/)                     | Observability     | Error monitoring setup for Next.js apps.                                      |
 | [Lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci)                                       | Performance       | Automated Lighthouse performance checks in CI/CD.                             |
 | [Checkly Docs](https://www.checklyhq.com/docs/)                                                      | Monitoring        | Synthetic monitoring and API checks for production apps.                      |
+## Production Cross-Links
+
+- Incident Index row: [INC-009 Migration succeeds in staging and fails in prod](../../reference/incident-index/README.md#inc-009-migration-succeeds-in-staging-and-fails-in-prod)
+- Reference asset: [Zero-downtime rollout checklist](../../reference/checklists/zero-downtime-rollout-checklist.md)
+- Hub page: [Documentation Hub](../README.md)

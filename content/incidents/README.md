@@ -133,3 +133,8 @@ If the SQL editor works but the app returns empty rows, retest as the real `auth
 - Forgetting `with check` on update policies.
 - Processing Stripe webhook retries without idempotency.
 - Creating Realtime subscriptions without cleanup.
+## Production Cross-Links
+
+- Incident Index row: [INC-002 Supabase returns empty array](../../reference/incident-index/README.md#inc-002-supabase-returns-empty-array-for-existing-rows)
+- Reference asset: [RLS audit SQL](../../reference/sql/rls-audit.sql)
+- Hub page: [Documentation Hub](../README.md)

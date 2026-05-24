@@ -22,6 +22,8 @@ Maintained actively with changelog-backed updates.
 - [Best Production Guides](#best-production-guides)
 - [Production SaaS Stack](#production-saas-stack)
 - [Reference Assets](#reference-assets)
+- [Incident Index](#incident-index)
+- [How To Use In Production Systems](#how-to-use-in-production-systems)
 - [Production Flows](#production-flows)
 - [Curated Resources](#curated-resources)
 - [Curation Standards](#curation-standards)
@@ -120,6 +122,21 @@ Senior-engineer references worth bookmarking:
 | Implementation snippets        | Snippets                  |
 | Starter templates and examples | Starter Kits              |
 | Ecosystem example projects     | Open Source Examples      |
+
+## Incident Index
+
+Use the production incident reference first when you are debugging under time pressure: `reference/incident-index/README.md`.
+
+It maps symptom -> root cause -> fix -> reusable reference asset.
+
+## How To Use In Production Systems
+
+1. During incidents: start with the incident index section above, then run the linked checklist or SQL asset.
+2. Before deploys: run [zero-downtime rollout checklist](reference/checklists/zero-downtime-rollout-checklist.md).
+3. For RLS hardening: run [RLS audit SQL](reference/sql/rls-audit.sql) and close policy gaps.
+4. For billing stability: implement [Stripe webhook idempotency template](reference/templates/stripe-webhook-idempotency-template.sql).
+5. For failed releases: follow [migration rollback playbook](reference/playbooks/migration-rollback-playbook.md).
+6. For stale UI or mutation bugs: use [Server Actions debugging matrix](reference/playbooks/server-actions-debugging-matrix.md).
 
 ## Production Flows
 

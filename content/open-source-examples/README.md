@@ -62,3 +62,8 @@ Use these official docs, repos, and tools when reviewing or extending open-sourc
 | [Playwright](https://playwright.dev/docs/intro) | Production tool | Useful for checking whether an example can support end-to-end tests. |
 | [Sentry for Next.js](https://docs.sentry.io/platforms/javascript/guides/nextjs/) | Production tool | Reference for adding error monitoring to example apps. |
 | [PostHog Docs](https://posthog.com/docs) | Production tool | Product analytics reference for SaaS and dashboard examples. |
+## Production Cross-Links
+
+- Incident Index row: [INC-011 Server Actions write succeeds but UI reads old state](../../reference/incident-index/README.md#inc-011-server-actions-write-succeeds-but-ui-reads-old-state)
+- Reference asset: [Migration rollback playbook](../../reference/playbooks/migration-rollback-playbook.md)
+- Hub page: [Documentation Hub](../README.md)

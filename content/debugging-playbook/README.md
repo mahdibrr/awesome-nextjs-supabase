@@ -123,3 +123,8 @@ Use these official references and tools when debugging production issues.
 | [Supabase Status](https://status.supabase.com/) | Status page | Check platform incidents before debugging your own code. |
 | [Vercel Status](https://www.vercel-status.com/) | Status page | Check hosting incidents and regional outages. |
 | [Stripe Status](https://status.stripe.com/) | Status page | Check billing and webhook incidents. |
+## Production Cross-Links
+
+- Incident Index row: [INC-004 OAuth callback loops](../../reference/incident-index/README.md#inc-004-oauth-callback-loops-to-login-in-app-router)
+- Reference asset: [Server Actions debugging matrix](../../reference/playbooks/server-actions-debugging-matrix.md)
+- Hub page: [Documentation Hub](../README.md)

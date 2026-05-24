@@ -185,3 +185,8 @@ Use these official docs, repos, and tools when turning snippets into production 
 | [vercel/next.js with-supabase example](https://github.com/vercel/next.js/tree/canary/examples/with-supabase) | GitHub repo | Official example to compare snippet structure against. |
 | [Zod](https://github.com/colinhacks/zod) | Production tool | Runtime validation for route handlers, forms, and Server Actions. |
 | [shadcn/ui](https://github.com/shadcn-ui/ui) | Production tool | Useful component source for form and dashboard UI snippets. |
+## Production Cross-Links
+
+- Incident Index row: [INC-015 RLS policy slows API to unusable latency](../../reference/incident-index/README.md#inc-015-rls-policy-slows-api-to-unusable-latency)
+- Reference asset: [RLS audit SQL](../../reference/sql/rls-audit.sql)
+- Hub page: [Documentation Hub](../README.md)

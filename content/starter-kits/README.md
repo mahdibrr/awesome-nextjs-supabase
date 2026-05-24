@@ -134,3 +134,8 @@ These are real external starters, examples, and production tools worth studying 
 | [supabase-community/nextjs-openai-doc-search](https://github.com/supabase-community/nextjs-openai-doc-search)     | AI starter        | Next.js, OpenAI, and Supabase template for document search.                      |
 | [Supabase CLI](https://supabase.com/docs/guides/local-development/cli/getting-started)                            | Production tool   | Essential for local development, migrations, database reset, and seed workflows. |
 | [shadcn/ui](https://github.com/shadcn-ui/ui)                                                                      | UI toolkit        | Common production UI foundation for Next.js dashboards and SaaS starters.        |
+## Production Cross-Links
+
+- Incident Index row: [INC-007 Duplicate subscription rows from retries](../../reference/incident-index/README.md#inc-007-duplicate-subscription-rows-from-retries)
+- Reference asset: [Stripe webhook idempotency template](../../reference/templates/stripe-webhook-idempotency-template.sql)
+- Hub page: [Documentation Hub](../README.md)
