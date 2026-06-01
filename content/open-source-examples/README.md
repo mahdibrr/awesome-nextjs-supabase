@@ -26,8 +26,7 @@ Real GitHub projects are useful because they show how the stack behaves outside 
 
 ## AI Apps With Supabase
 
-- [supabase-community/nextjs-openai-doc-search](https://github.com/supabase-community/nextjs-openai-doc-search) - Reference implementation for AI document search with embeddings.
-- [mayooear/langchain-supabase-website-chatbot](https://github.com/mayooear/langchain-supabase-website-chatbot) - LangChain chatbot backed by Supabase.
+- [vercel/chatbot](https://github.com/vercel/chatbot) - Production-grade AI chatbot template; pairs cleanly with Supabase for persistence and auth.
 - [nolly-studio/cult-directory-template](https://github.com/nolly-studio/cult-directory-template) - Next.js, Supabase, directory template, admin features, and AI-oriented product patterns.
 - [onlook-dev/onlook](https://github.com/onlook-dev/onlook) - Open-source AI-first visual editor built with React/Next.js patterns and Supabase in the stack.
 
@@ -62,6 +61,7 @@ Use these official docs, repos, and tools when reviewing or extending open-sourc
 | [Playwright](https://playwright.dev/docs/intro) | Production tool | Useful for checking whether an example can support end-to-end tests. |
 | [Sentry for Next.js](https://docs.sentry.io/platforms/javascript/guides/nextjs/) | Production tool | Reference for adding error monitoring to example apps. |
 | [PostHog Docs](https://posthog.com/docs) | Production tool | Product analytics reference for SaaS and dashboard examples. |
+
 ## Production Cross-Links
 
 - Incident Index row: [INC-011 Server Actions write succeeds but UI reads old state](../../reference/incident-index/README.md#inc-011-server-actions-write-succeeds-but-ui-reads-old-state)

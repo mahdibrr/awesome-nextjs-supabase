@@ -29,7 +29,7 @@ Please avoid:
 
 ## How To Suggest A Resource
 
-Open an issue, use [RESOURCE_REQUESTS.md](RESOURCE_REQUESTS.md), or submit a pull request with:
+Open an issue or submit a pull request with:
 
 - Resource title.
 - URL.
@@ -49,7 +49,7 @@ Production value: Helps debug empty results, blocked writes, and tenant isolatio
 
 ## How To Suggest A Production Incident
 
-Use [docs/community.md](docs/community.md) or this format for the Production Incident Index:
+Open an issue using this format for the Production Incident Index:
 
 ```md
 Symptom:
@@ -109,4 +109,4 @@ The most helpful areas right now are:
 - Stripe webhook reliability and subscription sync.
 - Realtime authorization and channel lifecycle issues.
 
-See [GOOD_FIRST_ISSUES.md](GOOD_FIRST_ISSUES.md) for small starting points.
+Check the [open issues](https://github.com/mahdibrr/awesome-nextjs-supabase/issues) for small starting points, or open a new one.
