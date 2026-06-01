@@ -59,14 +59,15 @@ Resources must be specific to one or more of:
 
 ---
 
-## Stats (as of May 2026)
+## Stats (as of June 2026)
 
 | Type | Count |
 |--------|------:|
-| Third-party resources | 27 |
-| iloveblogs.blog guides | 45 |
-| iloveblogs.blog posts | 53 |
-| Total | 125 |
+| Third-party resources (official docs, repos, tools) | ~103 |
+| iloveblogs.blog guides + posts | 16 |
+| Total unique links | ~119 |
+
+Counts are unique URLs across `README.md` and `content/**`. Third-party sources outnumber blog links roughly 6:1.
 
 ---
 
