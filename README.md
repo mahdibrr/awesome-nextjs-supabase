@@ -17,17 +17,13 @@ Most tutorials stop at "it works on localhost." This list starts where productio
 - [Reference Assets](#reference-assets)
 - [Production SaaS Stack](#production-saas-stack)
 - [Curated Resources](#curated-resources)
-- [Navigation](#navigation)
 - [Curation Standards](#curation-standards)
-- [Contributing](#contributing)
 
 ## Production Incident Index
 
 The fastest entry point when you are debugging under time pressure. It maps **symptom → root cause → fix → reusable reference asset**.
 
-➡️ **[Open the Production Incident Index](reference/incident-index/README.md)**
-
-When an incident hits: find the symptom, apply the fix, then run the linked checklist or SQL asset to prevent the regression. Companion checklists live in the [Production Checklists](content/production-checklists/README.md) and the [Debugging Playbook](content/debugging-playbook/README.md).
+Open the Production Incident Index in the Reference Assets section below. When an incident hits: find the symptom, apply the fix, then run the linked checklist or SQL asset to prevent the regression.
 
 ## Production Flows
 
@@ -84,34 +80,34 @@ flowchart LR
 
 ## Frequently Searched Problems
 
-| Search Phrase                | Start Here                    | First Diagnostic Check                                          |
-| ---------------------------- | ----------------------------- | --------------------------------------------------------------- |
-| Supabase RLS guide           | RLS and Security              | Validate policy operation and `auth.uid()` context.             |
-| Supabase empty array fix     | Production Incident Index     | Confirm no `service_role` leakage and `select` policy coverage. |
-| RLS policy debugging         | Production Incident Index     | Check `using` and `with check` symmetry for updates.            |
-| Supabase SSR auth            | Authentication and Sessions   | Verify server cookie refresh and SSR user resolution.           |
-| Supabase auth App Router     | Authentication and Sessions   | Confirm callback URLs and middleware exclusions.                |
-| Next.js middleware auth      | Production Debugging          | Inspect matcher scope for `/login` and `/auth/callback`.        |
-| Next.js production debugging | Production Debugging          | Inspect logs, cookies, env vars, and cache state together.      |
-| Next.js Supabase SaaS        | SaaS Architecture and Open-Source Examples | Confirm tenant isolation, billing sync, and migration safety.      |
-| Stripe Supabase SaaS         | Stripe and Billing            | Verify signature, idempotency, and subscription row sync.       |
+| Search Phrase                | Start Here                                 | First Diagnostic Check                                          |
+| ---------------------------- | ------------------------------------------ | --------------------------------------------------------------- |
+| Supabase RLS guide           | RLS and Security                           | Validate policy operation and `auth.uid()` context.             |
+| Supabase empty array fix     | Production Incident Index                  | Confirm no `service_role` leakage and `select` policy coverage. |
+| RLS policy debugging         | Production Incident Index                  | Check `using` and `with check` symmetry for updates.            |
+| Supabase SSR auth            | Authentication and Sessions                | Verify server cookie refresh and SSR user resolution.           |
+| Supabase auth App Router     | Authentication and Sessions                | Confirm callback URLs and middleware exclusions.                 |
+| Next.js middleware auth      | Production Debugging                       | Inspect matcher scope for `/login` and `/auth/callback`.        |
+| Next.js production debugging | Production Debugging                       | Inspect logs, cookies, env vars, and cache state together.      |
+| Next.js Supabase SaaS        | SaaS Architecture and Open-Source Examples | Confirm tenant isolation, billing sync, and migration safety.   |
+| Stripe Supabase SaaS         | Stripe and Billing                         | Verify signature, idempotency, and subscription row sync.       |
 
 ## Reference Assets
 
 Practical, copy-ready assets maintained in this repo.
 
-| Asset                                                                                   | Use It For                                          |
-| --------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| [Production Incident Index](reference/incident-index/README.md)                         | Symptom-first incident triage.                      |
-| [Debugging Playbook](content/debugging-playbook/README.md)                              | Auth, RLS, hydration, and API connection fixes.     |
-| [Production Checklists](content/production-checklists/README.md)                        | Release safety gates before deploy.                 |
-| [Zero-Downtime Rollout Checklist](reference/checklists/zero-downtime-rollout-checklist.md) | Sequencing a deploy under live traffic.          |
-| [RLS Audit SQL](reference/sql/rls-audit.sql)                                            | Finding policy gaps before they leak data.          |
-| [Stripe Webhook Idempotency Template](reference/templates/stripe-webhook-idempotency-template.sql) | Making billing event handling safe to retry. |
-| [Migration Rollback Playbook](reference/playbooks/migration-rollback-playbook.md)       | Recovering from a failed release.                   |
-| [Server Actions Debugging Matrix](reference/playbooks/server-actions-debugging-matrix.md) | Diagnosing stale UI after a mutation.             |
-| [Snippets](content/snippets/README.md)                                                  | Reusable auth, middleware, RLS, and API helpers.    |
-| [Open Source Examples](content/open-source-examples/README.md)                          | Studying real production-grade reference projects.  |
+| Asset                                                                                              | Use It For                                         |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| [Production Incident Index](reference/incident-index/README.md)                                    | Symptom-first incident triage.                     |
+| [Debugging Playbook](content/debugging-playbook/README.md)                                         | Auth, RLS, hydration, and API connection fixes.    |
+| [Production Checklists](content/production-checklists/README.md)                                   | Release safety gates before deploy.                |
+| [Zero-Downtime Rollout Checklist](reference/checklists/zero-downtime-rollout-checklist.md)         | Sequencing a deploy under live traffic.            |
+| [RLS Audit SQL](reference/sql/rls-audit.sql)                                                       | Finding policy gaps before they leak data.         |
+| [Stripe Webhook Idempotency Template](reference/templates/stripe-webhook-idempotency-template.sql) | Making billing event handling safe to retry.       |
+| [Migration Rollback Playbook](reference/playbooks/migration-rollback-playbook.md)                  | Recovering from a failed release.                  |
+| [Server Actions Debugging Matrix](reference/playbooks/server-actions-debugging-matrix.md)          | Diagnosing stale UI after a mutation.              |
+| [Snippets](content/snippets/README.md)                                                             | Reusable auth, middleware, RLS, and API helpers.   |
+| [Open Source Examples](content/open-source-examples/README.md)                                     | Studying real production-grade reference projects. |
 
 ## Production SaaS Stack
 
@@ -170,11 +166,10 @@ Practical, copy-ready assets maintained in this repo.
 - [Vercel with-supabase Example](https://github.com/vercel/next.js/tree/canary/examples/with-supabase) - Official integration shape.
 - [makerkit/nextjs-saas-starter-kit-lite](https://github.com/makerkit/nextjs-saas-starter-kit-lite) - Maintained open-source SaaS baseline.
 - [KolbySisk/next-supabase-stripe-starter](https://github.com/KolbySisk/next-supabase-stripe-starter) - Stripe-driven starter with practical SaaS structure.
-- [More open-source examples →](content/open-source-examples/README.md) - SaaS, dashboard, chat, and AI reference projects with an evaluation checklist.
 
 ### Realtime, Edge Functions, and Background Work
 
-- [Supabase Realtime](https://supabase.com/docs/guides/realtime) - Postgres changes, broadcast, and presence for live features.
+- [Supabase Realtime](https://supabase.com/docs/guides/realtime) - PostgreSQL changes, broadcast, and presence for live features.
 - [Supabase Edge Functions](https://supabase.com/docs/guides/functions) - Deno-based serverless functions for webhooks and side effects.
 - [Supabase Database Webhooks](https://supabase.com/docs/guides/database/webhooks) - Trigger external workflows from row changes.
 - [Supabase CLI and Local Development](https://supabase.com/docs/guides/local-development/overview) - Local stack, migrations, and seeding.
@@ -182,7 +177,7 @@ Practical, copy-ready assets maintained in this repo.
 ### AI, RAG, and pgvector
 
 - [Supabase AI and Vectors](https://supabase.com/docs/guides/ai) - Official vector and AI workflows.
-- [pgvector Extension](https://supabase.com/docs/guides/database/extensions/pgvector) - Storing and querying embeddings in Postgres.
+- [pgvector Extension](https://supabase.com/docs/guides/database/extensions/pgvector) - Storing and querying embeddings in PostgreSQL.
 - [supabase-community/nextjs-openai-doc-search](https://github.com/supabase-community/nextjs-openai-doc-search) - Practical RAG baseline.
 - [Vercel AI Chatbot](https://github.com/vercel/chatbot) - Production-grade chat architecture reference.
 - [Production RAG Guide for Next.js and Supabase](https://www.iloveblogs.blog/guides/ai-integration-nextjs-supabase) - Operational constraints for retrieval systems.
@@ -205,19 +200,6 @@ Practical, copy-ready assets maintained in this repo.
 
 - [Next.js Learn Course](https://nextjs.org/learn) - Official guided course for App Router fundamentals.
 - [Supabase Next.js Tutorial](https://supabase.com/docs/guides/getting-started/tutorials/with-nextjs) - End-to-end starter from the Supabase team.
-- [7-Day Production Roadmap](content/learning-paths/README.md) - Beginner → advanced path maintained in this repo.
-
-## Navigation
-
-| Area                                         | Entry Point                                                      |
-| -------------------------------------------- | ---------------------------------------------------------------- |
-| Production incidents and symptom-first fixes | [Production Incident Index](reference/incident-index/README.md)  |
-| Practical debugging workflows                | [Debugging Playbook](content/debugging-playbook/README.md)       |
-| Release safety checks                        | [Production Checklists](content/production-checklists/README.md) |
-| Reusable implementation snippets             | [Snippets](content/snippets/README.md)                           |
-| Starter architecture examples                | [Open Source Examples](content/open-source-examples/README.md)   |
-| Guided learning                              | [Learning Paths](content/learning-paths/README.md)               |
-| Content hub index                            | [Content Hub](content/README.md)                                 |
 
 ## Curation Standards
 
