@@ -80,17 +80,15 @@ flowchart LR
 
 ## Frequently Searched Problems
 
-| Search Phrase                | Start Here                                 | First Diagnostic Check                                          |
-| ---------------------------- | ------------------------------------------ | --------------------------------------------------------------- |
-| Supabase RLS guide           | RLS and Security                           | Validate policy operation and `auth.uid()` context.             |
-| Supabase empty array fix     | Production Incident Index                  | Confirm no `service_role` leakage and `select` policy coverage. |
-| RLS policy debugging         | Production Incident Index                  | Check `using` and `with check` symmetry for updates.            |
-| Supabase SSR auth            | Authentication and Sessions                | Verify server cookie refresh and SSR user resolution.           |
-| Supabase auth App Router     | Authentication and Sessions                | Confirm callback URLs and middleware exclusions.                 |
-| Next.js middleware auth      | Production Debugging                       | Inspect matcher scope for `/login` and `/auth/callback`.        |
-| Next.js production debugging | Production Debugging                       | Inspect logs, cookies, env vars, and cache state together.      |
-| Next.js Supabase SaaS        | SaaS Architecture and Open-Source Examples | Confirm tenant isolation, billing sync, and migration safety.   |
-| Stripe Supabase SaaS         | Stripe and Billing                         | Verify signature, idempotency, and subscription row sync.       |
+- **Supabase RLS guide** — Validate policy operation and `auth.uid()` context. Start at RLS and Security.
+- **Supabase empty array fix** — Confirm no `service_role` leakage and `select` policy coverage. Start at Production Incident Index.
+- **RLS policy debugging** — Check `using` and `with check` symmetry for updates. Start at Production Incident Index.
+- **Supabase SSR auth** — Verify server cookie refresh and SSR user resolution. Start at Authentication and Sessions.
+- **Supabase auth App Router** — Confirm callback URLs and middleware exclusions. Start at Authentication and Sessions.
+- **Next.js middleware auth** — Inspect matcher scope for `/login` and `/auth/callback`. Start at Production Debugging.
+- **Next.js production debugging** — Inspect logs, cookies, env vars, and cache state together. Start at Production Debugging.
+- **Next.js Supabase SaaS** — Confirm tenant isolation, billing sync, and migration safety. Start at SaaS Architecture and Open-Source Examples.
+- **Stripe Supabase SaaS** — Verify signature, idempotency, and subscription row sync. Start at Stripe and Billing.
 
 ## Reference Assets
 
