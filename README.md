@@ -13,7 +13,6 @@ Most tutorials stop at "it works on localhost." This list starts where productio
 - [Production Incident Index](#production-incident-index)
 - [Production Flows](#production-flows)
 - [Who This Is For](#who-this-is-for)
-- [Frequently Searched Problems](#frequently-searched-problems)
 - [Reference Assets](#reference-assets)
 - [Production SaaS Stack](#production-saas-stack)
 - [Curated Resources](#curated-resources)
@@ -77,18 +76,6 @@ flowchart LR
 - Engineers shipping Next.js + Supabase SaaS products to production.
 - Teams debugging auth, RLS, billing, and cache invalidation incidents.
 - Founders and maintainers who need a reliable architecture baseline.
-
-## Frequently Searched Problems
-
-- **Supabase RLS guide** — Validate policy operation and `auth.uid()` context. Start at RLS and Security.
-- **Supabase empty array fix** — Confirm no `service_role` leakage and `select` policy coverage. Start at Production Incident Index.
-- **RLS policy debugging** — Check `using` and `with check` symmetry for updates. Start at Production Incident Index.
-- **Supabase SSR auth** — Verify server cookie refresh and SSR user resolution. Start at Authentication and Sessions.
-- **Supabase auth App Router** — Confirm callback URLs and middleware exclusions. Start at Authentication and Sessions.
-- **Next.js middleware auth** — Inspect matcher scope for `/login` and `/auth/callback`. Start at Production Debugging.
-- **Next.js production debugging** — Inspect logs, cookies, env vars, and cache state together. Start at Production Debugging.
-- **Next.js Supabase SaaS** — Confirm tenant isolation, billing sync, and migration safety. Start at SaaS Architecture and Open-Source Examples.
-- **Stripe Supabase SaaS** — Verify signature, idempotency, and subscription row sync. Start at Stripe and Billing.
 
 ## Reference Assets
 
