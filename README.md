@@ -44,7 +44,7 @@ flowchart LR
 ```mermaid
 flowchart TD
     A[Incoming User Query] --> B[JWT Claims]
-    B --> C[auth.uid() Resolution]
+    B --> C["auth.uid() Resolution"]
     C --> D[Policy USING Predicate]
     D --> E[Policy WITH CHECK Predicate]
     E --> F[Allowed Rows Returned]
