@@ -131,6 +131,14 @@ Practical, copy-ready assets maintained in this repo.
 - [Chrome DevTools Network Panel](https://developer.chrome.com/docs/devtools/network/) - Request, cookie, and redirect inspection.
 - [Vercel Runtime Logs](https://vercel.com/docs/logs/runtime) - Production route and runtime diagnostics.
 
+### Testing
+
+- [Supabase Database Seeding](https://supabase.com/docs/guides/local-development/seeding-your-database) - Populate and reset database state for testing.
+- [Next.js Testing Guide](https://nextjs.org/docs/app/guides/testing) - Official guide for testing Next.js applications.
+- [Playwright Authentication](https://playwright.dev/docs/auth) - Testing login flows using stored authentication state.
+- [Supabase Database Testing (pgTAP)](https://supabase.com/docs/guides/database/testing) - Test RLS policies and database logic using pgTAP with Supabase.
+
+
 ### Server Actions and Revalidation
 
 - [Next.js Server Actions](https://nextjs.org/docs/app/getting-started/mutating-data) - Mutation semantics and runtime behavior.
