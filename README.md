@@ -133,12 +133,10 @@ Practical, copy-ready assets maintained in this repo.
 
 ### Testing
 
-- [Supabase Local Development](https://supabase.com/docs/guides/local-development/overview) - Run and test against a local Supabase instance.
 - [Supabase Database Seeding](https://supabase.com/docs/guides/local-development/seeding-your-database) - Populate and reset database state for testing.
-- [Next.js Testing Guide](https://nextjs.org/docs/app/building-your-application/testing) - Official guide for testing Next.js applications.
+- [Next.js Testing Guide](https://nextjs.org/docs/app/guides/testing) - Official guide for testing Next.js applications.
 - [Playwright Authentication](https://playwright.dev/docs/auth) - Testing login flows using stored authentication state.
-- [Testcontainers](https://testcontainers.com/) - Resetting database state between tests for reliable integration testing.
-
+- [Supabase Database Testing (pgTAP)](https://supabase.com/docs/guides/database/testing) - Test RLS policies and database logic using pgTAP with Supabase.
 
 
 ### Server Actions and Revalidation
