@@ -2,6 +2,8 @@
 
 Last verified: 2026-05-24
 
+> This is the numbered catalog mapping each incident to a reusable asset in this repo. For a broader symptom-organized debugging reference with links to the official docs, see the [Symptom Reference](../../content/incidents/README.md).
+
 | Problem | Stack (Next.js / Supabase / Stripe) | Root Cause | Fix | Reference Asset Link |
 | --- | --- | --- | --- | --- |
 | INC-001: `cookies() should be awaited` runtime warning in App Router | Next.js | Reading cookies in contexts that became async in newer runtime behavior. | Use `await cookies()` where required and isolate cookie access in server boundaries. | [Server Actions debugging matrix](../playbooks/server-actions-debugging-matrix.md) |
