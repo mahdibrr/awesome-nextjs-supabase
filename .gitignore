@@ -1,2 +1,5 @@
 # Claude Code local files
 .claude/
+
+# Local distribution drafts (not part of the awesome list)
+distribution/

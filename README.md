@@ -8,6 +8,8 @@ A curated list of Next.js + Supabase resources focused on what breaks **after** 
 
 Most tutorials stop at "it works on localhost." This list starts where production problems begin.
 
+> **Building with AI coding tools?** Drop [`AGENTS.md`](AGENTS.md) (and [`.cursor/rules/`](.cursor/rules/nextjs-supabase-production.mdc)) into your repo so Cursor, Copilot, and Claude Code stop generating the RLS, SSR-session, and Stripe-webhook bugs that only surface in production.
+
 ## Contents
 
 - [Production Incident Index](#production-incident-index)
@@ -16,6 +18,7 @@ Most tutorials stop at "it works on localhost." This list starts where productio
 - [Reference Assets](#reference-assets)
 - [Production SaaS Stack](#production-saas-stack)
 - [Curated Resources](#curated-resources)
+- [Tools and Services](#tools-and-services)
 - [Curation Standards](#curation-standards)
 
 ## Production Incident Index
@@ -122,6 +125,8 @@ Practical, copy-ready assets maintained in this repo.
 - [Supabase Row Level Security](https://supabase.com/docs/guides/database/postgres/row-level-security) - Primary RLS reference.
 - [RLS Performance and Best Practices](https://supabase.com/docs/guides/troubleshooting/rls-performance-and-best-practices-Z5Jjwv) - Policy performance and index alignment.
 - [Supabase Security Suite](https://supabase.com/blog/hardening-supabase) - Platform-level hardening patterns.
+- [Custom Claims and RBAC](https://supabase.com/docs/guides/database/postgres/custom-claims-and-role-based-access-control-rbac) - Role-based access via JWT claims and auth hooks for multi-tenant apps.
+- [User Management and Profiles](https://supabase.com/docs/guides/auth/managing-user-data) - Modeling a `public.profiles` table tied to `auth.users` without exposing the auth schema.
 - [PostgreSQL EXPLAIN](https://www.postgresql.org/docs/current/using-explain.html) - Query plan analysis for policy-heavy tables.
 
 ### Production Debugging
@@ -165,12 +170,16 @@ Practical, copy-ready assets maintained in this repo.
 - [Supabase Realtime](https://supabase.com/docs/guides/realtime) - PostgreSQL changes, broadcast, and presence for live features.
 - [Supabase Edge Functions](https://supabase.com/docs/guides/functions) - Deno-based serverless functions for webhooks and side effects.
 - [Supabase Database Webhooks](https://supabase.com/docs/guides/database/webhooks) - Trigger external workflows from row changes.
+- [Supabase Queues](https://supabase.com/docs/guides/queues) - Postgres-native durable message queue for background jobs with guaranteed delivery.
 - [Supabase CLI and Local Development](https://supabase.com/docs/guides/local-development/overview) - Local stack, migrations, and seeding.
 
-### AI, RAG, and pgvector
+### AI, RAG, and Agents
 
 - [Supabase AI and Vectors](https://supabase.com/docs/guides/ai) - Official vector and AI workflows.
 - [pgvector Extension](https://supabase.com/docs/guides/database/extensions/pgvector) - Storing and querying embeddings in PostgreSQL.
+- [Supabase Semantic Search](https://supabase.com/docs/guides/ai/semantic-search) - Embedding-based search with similarity functions and index tuning.
+- [Vercel AI SDK](https://ai-sdk.dev/docs/introduction) - TypeScript toolkit for streaming, tool calls, and agents in Next.js.
+- [Supabase MCP Server](https://supabase.com/docs/guides/getting-started/mcp) - Connect AI coding tools to your project over the Model Context Protocol.
 - [supabase-community/nextjs-openai-doc-search](https://github.com/supabase-community/nextjs-openai-doc-search) - Practical RAG baseline.
 - [Vercel AI Chatbot](https://github.com/vercel/chatbot) - Production-grade chat architecture reference.
 - [Production RAG Guide for Next.js and Supabase](https://www.iloveblogs.blog/guides/ai-integration-nextjs-supabase) - Operational constraints for retrieval systems.
@@ -193,6 +202,52 @@ Practical, copy-ready assets maintained in this repo.
 
 - [Next.js Learn Course](https://nextjs.org/learn) - Official guided course for App Router fundamentals.
 - [Supabase Next.js Tutorial](https://supabase.com/docs/guides/getting-started/tutorials/with-nextjs) - End-to-end starter from the Supabase team.
+
+## Tools and Services
+
+Decision tables for the choices this stack actually forces. The **baseline** is the default that keeps everything inside Next.js + Supabase; alternatives are listed only when they earn their place with first-class integration.
+
+### Auth
+
+| Option                        | Choose it when                                                                                              |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| **Supabase Auth** (baseline)  | You want cookie-based SSR sessions wired directly to RLS, no extra vendor.                                  |
+| [Clerk](https://clerk.com)    | You need prebuilt UI, organizations, and MFA out of the box; integrates with Supabase via third-party auth. |
+| [Auth.js](https://authjs.dev) | You want framework-native auth with many OAuth providers and full control over the session layer.           |
+
+### Data Access and Type Safety
+
+| Option                                                           | Choose it when                                                                       |
+| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| **supabase-js** (baseline)                                       | You want RLS-aware queries, realtime, and storage from one client.                   |
+| [Drizzle ORM](https://supabase.com/docs/guides/database/drizzle) | You want type-safe SQL and migrations, with or instead of the PostgREST Data API.    |
+| [Prisma](https://www.prisma.io)                                  | You want a mature schema-first ORM with a large ecosystem against Supabase Postgres. |
+| [Kysely](https://kysely.dev)                                     | You want a thin, compile-time-checked SQL query builder with no ORM overhead.        |
+
+### Background Jobs and Workflows
+
+| Option                             | Choose it when                                                                  |
+| ---------------------------------- | ------------------------------------------------------------------------------- |
+| **Supabase Queues** (baseline)     | You want a Postgres-native durable queue without leaving the database.          |
+| [Inngest](https://inngest.com)     | You want durable multi-step workflows and event-driven jobs deployed on Vercel. |
+| [Trigger.dev](https://trigger.dev) | You want long-running TypeScript tasks with retries, queues, and observability. |
+
+### Payments and Billing
+
+| Option                    | Choose it when                                                                               |
+| ------------------------- | -------------------------------------------------------------------------------------------- |
+| **Stripe** (baseline)     | You need full control over subscriptions, metering, and webhook-driven entitlements.         |
+| [Polar](https://polar.sh) | You want a Merchant of Record that handles tax and invoicing for indie SaaS and AI products. |
+
+### Supporting Tools
+
+| Tool                                                                           | Solves                                                                                   |
+| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| [Resend](https://resend.com)                                                   | Transactional email from Next.js with React Email templates.                             |
+| [Upstash Ratelimit](https://upstash.com/docs/redis/sdks/ratelimit-ts/overview) | Connectionless rate limiting for API routes, middleware, and Server Actions.             |
+| [t3-env](https://github.com/t3-oss/t3-env)                                     | Type-safe, validated environment variables across server and client boundaries.          |
+| [Supabase Self-Hosting](https://supabase.com/docs/guides/self-hosting)         | Running your own Supabase via Docker or Kubernetes.                                      |
+| [Coolify](https://coolify.io)                                                  | Self-hostable PaaS for deploying Next.js and a self-hosted Supabase on your own servers. |
 
 ## Curation Standards
 
