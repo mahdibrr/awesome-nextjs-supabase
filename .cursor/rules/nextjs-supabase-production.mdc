@@ -1,0 +1,37 @@
+---
+description: Production guardrails for Next.js (App Router) + Supabase + Stripe — prevents the most common AI-generated bugs.
+globs:
+  - "**/*.ts"
+  - "**/*.tsx"
+  - "supabase/**/*.sql"
+alwaysApply: true
+---
+
+# Next.js + Supabase Production Rules
+
+Apply these when generating or editing code. Full reference: `AGENTS.md` and the Production Incident Index.
+
+## Auth & sessions
+- `await cookies()` in the App Router — never read cookies synchronously.
+- Use the `@supabase/ssr` server client; it must read AND write cookies, or sessions die on refresh.
+- Refresh the session in middleware via both request and response cookies.
+
+## Middleware
+- Scope the matcher with a negative lookahead so it never touches `_next/static`, `_next/image`, or favicons.
+- Exclude `/auth/callback` and login routes from protection (otherwise OAuth loops).
+
+## RLS
+- Enabling RLS without a `SELECT` policy returns `[]`, not an error. Add scoped policies; test as anon and authenticated.
+- Never reference a table inside its own policy via nested `EXISTS` (infinite recursion) — use a `SECURITY DEFINER` helper.
+- Index every policy predicate column; wrap as `(SELECT auth.uid())` for per-statement caching.
+
+## Server Actions & caching
+- `revalidatePath`/`revalidateTag` must match the exact path/tag the cached fetch used.
+- Render user-scoped data dynamically; revalidate only after the write commits.
+
+## Stripe
+- Verify the webhook signature against the RAW body, using the environment-scoped secret.
+- Make handlers idempotent (dedupe by `event.id`) and short (offload long work to a queue).
+
+## Migrations
+- Use preflight checks, expand-contract changes, `lock_timeout`, and a rehearsed rollback.
