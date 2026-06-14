@@ -1,6 +1,8 @@
-# Production Incident Index
+# Symptom Reference: Next.js + Supabase Debugging
 
-Production debugging reference for Next.js and Supabase apps. Use this when the symptom matters more than the framework category.
+A symptom-organized debugging reference for Next.js and Supabase apps, grouped by area (auth, RLS, deployment, caching, billing, database, realtime), with links to the official docs that fix each one. Use this when the symptom matters more than the framework category.
+
+> Looking for the numbered incident catalog that maps each failure to a reusable asset in this repo (audit SQL, templates, playbooks)? See the [Production Incident Index](../../reference/incident-index/README.md).
 
 Search phrases covered naturally here include: "Supabase returns empty array", "Next.js auth session lost after refresh", "RLS silently fails", and "middleware redirect loop".
 
