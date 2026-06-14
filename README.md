@@ -86,7 +86,6 @@ Practical, copy-ready assets maintained in this repo.
 
 | Asset                                                                                              | Use It For                                         |
 | -------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| [AGENTS.md (AI agent rules)](AGENTS.md)                                                            | Stopping AI tools from generating production bugs. |
 | [Production Incident Index](reference/incident-index/README.md)                                    | Symptom-first incident triage.                     |
 | [Debugging Playbook](content/debugging-playbook/README.md)                                         | Auth, RLS, hydration, and API connection fixes.    |
 | [Production Checklists](content/production-checklists/README.md)                                   | Release safety gates before deploy.                |
@@ -210,45 +209,45 @@ Decision tables for the choices this stack actually forces. The **baseline** is 
 
 ### Auth
 
-| Option | Choose it when |
-| ------ | -------------- |
-| **Supabase Auth** (baseline) | You want cookie-based SSR sessions wired directly to RLS, no extra vendor. |
-| [Clerk](https://clerk.com) | You need prebuilt UI, organizations, and MFA out of the box; integrates with Supabase via third-party auth. |
-| [Auth.js](https://authjs.dev) | You want framework-native auth with many OAuth providers and full control over the session layer. |
+| Option                        | Choose it when                                                                                              |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| **Supabase Auth** (baseline)  | You want cookie-based SSR sessions wired directly to RLS, no extra vendor.                                  |
+| [Clerk](https://clerk.com)    | You need prebuilt UI, organizations, and MFA out of the box; integrates with Supabase via third-party auth. |
+| [Auth.js](https://authjs.dev) | You want framework-native auth with many OAuth providers and full control over the session layer.           |
 
 ### Data Access and Type Safety
 
-| Option | Choose it when |
-| ------ | -------------- |
-| **supabase-js** (baseline) | You want RLS-aware queries, realtime, and storage from one client. |
-| [Drizzle ORM](https://supabase.com/docs/guides/database/drizzle) | You want type-safe SQL and migrations, with or instead of the PostgREST Data API. |
-| [Prisma](https://www.prisma.io) | You want a mature schema-first ORM with a large ecosystem against Supabase Postgres. |
-| [Kysely](https://kysely.dev) | You want a thin, compile-time-checked SQL query builder with no ORM overhead. |
+| Option                                                           | Choose it when                                                                       |
+| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| **supabase-js** (baseline)                                       | You want RLS-aware queries, realtime, and storage from one client.                   |
+| [Drizzle ORM](https://supabase.com/docs/guides/database/drizzle) | You want type-safe SQL and migrations, with or instead of the PostgREST Data API.    |
+| [Prisma](https://www.prisma.io)                                  | You want a mature schema-first ORM with a large ecosystem against Supabase Postgres. |
+| [Kysely](https://kysely.dev)                                     | You want a thin, compile-time-checked SQL query builder with no ORM overhead.        |
 
 ### Background Jobs and Workflows
 
-| Option | Choose it when |
-| ------ | -------------- |
-| **Supabase Queues** (baseline) | You want a Postgres-native durable queue without leaving the database. |
-| [Inngest](https://inngest.com) | You want durable multi-step workflows and event-driven jobs deployed on Vercel. |
+| Option                             | Choose it when                                                                  |
+| ---------------------------------- | ------------------------------------------------------------------------------- |
+| **Supabase Queues** (baseline)     | You want a Postgres-native durable queue without leaving the database.          |
+| [Inngest](https://inngest.com)     | You want durable multi-step workflows and event-driven jobs deployed on Vercel. |
 | [Trigger.dev](https://trigger.dev) | You want long-running TypeScript tasks with retries, queues, and observability. |
 
 ### Payments and Billing
 
-| Option | Choose it when |
-| ------ | -------------- |
-| **Stripe** (baseline) | You need full control over subscriptions, metering, and webhook-driven entitlements. |
+| Option                    | Choose it when                                                                               |
+| ------------------------- | -------------------------------------------------------------------------------------------- |
+| **Stripe** (baseline)     | You need full control over subscriptions, metering, and webhook-driven entitlements.         |
 | [Polar](https://polar.sh) | You want a Merchant of Record that handles tax and invoicing for indie SaaS and AI products. |
 
 ### Supporting Tools
 
-| Tool | Solves |
-| ---- | ------ |
-| [Resend](https://resend.com) | Transactional email from Next.js with React Email templates. |
-| [Upstash Ratelimit](https://upstash.com/docs/redis/sdks/ratelimit-ts/overview) | Connectionless rate limiting for API routes, middleware, and Server Actions. |
-| [t3-env](https://github.com/t3-oss/t3-env) | Type-safe, validated environment variables across server and client boundaries. |
-| [Supabase Self-Hosting](https://supabase.com/docs/guides/self-hosting) | Running your own Supabase via Docker or Kubernetes. |
-| [Coolify](https://coolify.io) | Self-hostable PaaS for deploying Next.js and a self-hosted Supabase on your own servers. |
+| Tool                                                                           | Solves                                                                                   |
+| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| [Resend](https://resend.com)                                                   | Transactional email from Next.js with React Email templates.                             |
+| [Upstash Ratelimit](https://upstash.com/docs/redis/sdks/ratelimit-ts/overview) | Connectionless rate limiting for API routes, middleware, and Server Actions.             |
+| [t3-env](https://github.com/t3-oss/t3-env)                                     | Type-safe, validated environment variables across server and client boundaries.          |
+| [Supabase Self-Hosting](https://supabase.com/docs/guides/self-hosting)         | Running your own Supabase via Docker or Kubernetes.                                      |
+| [Coolify](https://coolify.io)                                                  | Self-hostable PaaS for deploying Next.js and a self-hosted Supabase on your own servers. |
 
 ## Curation Standards
 
