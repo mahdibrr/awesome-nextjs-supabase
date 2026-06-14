@@ -1,4 +1,4 @@
-# Awesome Next.js + Supabase [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+# Awesome Next.js and Supabase [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
 [![Link Check](https://github.com/mahdibrr/awesome-nextjs-supabase/actions/workflows/link-check.yml/badge.svg)](https://github.com/mahdibrr/awesome-nextjs-supabase/actions/workflows/link-check.yml)
 [![Contributors](https://img.shields.io/github/contributors/mahdibrr/awesome-nextjs-supabase)](https://github.com/mahdibrr/awesome-nextjs-supabase/graphs/contributors)
