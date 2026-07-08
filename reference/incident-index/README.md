@@ -21,6 +21,7 @@ Last verified: 2026-05-24
 | INC-013: pgvector query latency spikes after index changes | Supabase + PostgreSQL | Missing maintenance/reindex strategy and inconsistent embedding dimensions. | Validate dimensions, inspect plans, and benchmark before deploy. | [pgvector benchmark template](../templates/pgvector-benchmark-template.md) |
 | INC-014: Middleware auth breaks static assets | Next.js | Matcher scope accidentally includes `_next/static` or image paths. | Narrow matcher and explicitly exclude static/runtime paths. | [Server Actions debugging matrix](../playbooks/server-actions-debugging-matrix.md) |
 | INC-015: RLS policy slows API to unusable latency | Supabase + PostgreSQL | Policy predicates missing supporting indexes on tenant/user columns. | Add composite indexes and validate with `EXPLAIN ANALYZE`. | [RLS audit SQL](../sql/rls-audit.sql) |
+| INC-016: Webhook returns 200 OK but business state is wrong | Stripe + Supabase | Event dedup is in place, but side effects are not independently idempotent, or the event is marked processed before the side effects commit. | Track processing state, not just "seen"; make each side effect idempotent with its own unique key; only return 200 after side effects commit; backfill missed events from the Stripe API. | [Stripe webhook idempotency template](../templates/stripe-webhook-idempotency-template.sql), [Stripe webhook test plan](../playbooks/stripe-webhook-test-plan.md) |
 
 ## Incident Anchor Map
 
@@ -41,3 +42,4 @@ Use these anchors for guide-level internal links.
 - [INC-013](#inc-013-pgvector-query-latency-spikes-after-index-changes)
 - [INC-014](#inc-014-middleware-auth-breaks-static-assets)
 - [INC-015](#inc-015-rls-policy-slows-api-to-unusable-latency)
+- [INC-016](#inc-016-webhook-returns-200-ok-but-business-state-is-wrong)
