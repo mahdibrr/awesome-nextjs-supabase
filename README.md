@@ -3,6 +3,7 @@
 [![Link Check](https://github.com/mahdibrr/awesome-nextjs-supabase/actions/workflows/link-check.yml/badge.svg)](https://github.com/mahdibrr/awesome-nextjs-supabase/actions/workflows/link-check.yml)
 [![Contributors](https://img.shields.io/github/contributors/mahdibrr/awesome-nextjs-supabase)](https://github.com/mahdibrr/awesome-nextjs-supabase/graphs/contributors)
 [![Last Commit](https://img.shields.io/github/last-commit/mahdibrr/awesome-nextjs-supabase)](https://github.com/mahdibrr/awesome-nextjs-supabase/commits/main)
+[![Good First Issues](https://img.shields.io/github/issues/mahdibrr/awesome-nextjs-supabase/good%20first%20issue)](https://github.com/mahdibrr/awesome-nextjs-supabase/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
 
 A curated list of Next.js + Supabase resources focused on what breaks **after** you deploy: RLS empty-result bugs, SSR session loss, middleware redirect loops, Stripe webhook reliability, and cache invalidation after Server Actions.
 

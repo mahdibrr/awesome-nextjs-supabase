@@ -1,0 +1,75 @@
+name: Incident report
+description: Add a new entry to the Production Incident Index (reference/incident-index/README.md).
+title: "Incident: "
+labels:
+  - documentation
+  - enhancement
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Incident title
+      description: Short, symptom-first label. The pattern is "Symptom: root-cause clue".
+      placeholder: Webhook returns 200 OK but business state is wrong
+    validations:
+      required: true
+  - type: dropdown
+    id: stack
+    attributes:
+      label: Stack layer
+      description: Which part of the stack is the failure on?
+      options:
+        - Next.js
+        - Supabase
+        - Supabase + PostgreSQL
+        - Next.js + Supabase
+        - Stripe
+        - Stripe + Supabase
+        - Next.js + Supabase + Stripe
+        - Supabase + PostgreSQL + RLS
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: symptom
+    attributes:
+      label: Symptom
+      description: What did the operator observe? Use first-person signals (error, log line, user report).
+      placeholder: |
+        Stripe returned 200 OK on every retry, but the customer's entitlement was granted twice and the ledger row was missing.
+    validations:
+      required: true
+  - type: textarea
+    id: root_cause
+    attributes:
+      label: Root cause
+      description: The mechanism that produced the symptom, not the trigger.
+      placeholder: |
+        The handler dedupes on stripe_event_id but the side effects (entitlement grant, ledger row) are not independently idempotent. A crash between the dedup insert and the side-effect commit leaves the event in a non-final state.
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: Fix pattern
+      description: What the operator should do. Actionable steps, not principles.
+      placeholder: |
+        Track processing state on the event row (received / processing / processed / failed), claim the event before running side effects, return 200 only after side effects commit, and add a unique constraint on (stripe_event_id, side_effect_name) per business table.
+    validations:
+      required: true
+  - type: input
+    id: reference
+    attributes:
+      label: Reference asset
+      description: A link to a reusable asset in this repo (playbook, SQL template, checklist) that prevents the regression. Format: relative path.
+      placeholder: reference/playbooks/stripe-webhook-test-plan.md
+    validations:
+      required: false
+  - type: input
+    id: external
+    attributes:
+      label: External reference (optional)
+      description: A vetted external link that documents the failure mode (Stripe doc, Supabase doc, maintained OSS repo). Skip if none.
+      placeholder: https://docs.stripe.com/webhooks
+    validations:
+      required: false
