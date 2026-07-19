@@ -1,0 +1,7 @@
+# Dependencies installed locally to run an example — never commit.
+**/node_modules/
+
+# Test / run artifacts.
+*.log
+*.out
+.vitest/

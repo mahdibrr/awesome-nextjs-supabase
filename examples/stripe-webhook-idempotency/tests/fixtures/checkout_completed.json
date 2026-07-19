@@ -1,0 +1,18 @@
+{
+  "id": "evt_test_checkout_001",
+  "object": "event",
+  "type": "checkout.session.completed",
+  "livemode": false,
+  "created": 1700000000,
+  "data": {
+    "object": {
+      "id": "cs_test_001",
+      "object": "checkout.session",
+      "mode": "subscription",
+      "status": "complete",
+      "customer": "cus_test_001",
+      "subscription": "sub_test_001",
+      "metadata": { "user_id": "user_test_001" }
+    }
+  }
+}

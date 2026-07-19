@@ -1,0 +1,17 @@
+{
+  "name": "stripe-webhook-idempotency",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Runnable example: Stripe webhook idempotency state machine (INC-006/007/012/016) for Next.js + Supabase.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.0"
+  }
+}

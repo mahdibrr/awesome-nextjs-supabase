@@ -1,0 +1,17 @@
+{
+  "name": "nextjs15-cache-and-params",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Runnable example for INC-020 (async params), INC-008 (revalidatePath wrong target), and INC-011 (stale cache tags).",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "vitest": "^1.6.0"
+  }
+}
