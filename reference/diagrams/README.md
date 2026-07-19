@@ -1,15 +1,18 @@
 # Production Architecture Diagrams for Next.js + Supabase Systems
 
-Last verified: 2026-05-24
+Last verified: 2026-07-19
 
-Use these diagrams for onboarding, incident retrospectives, and architecture reviews.
+Use these diagrams for onboarding, incident retrospectives, and architecture reviews. Each diagram file is self-contained Mermaid that GitHub renders inline.
 
-## Included Diagram Topics
+## Built
 
-- Request lifecycle (browser -> middleware -> SSR auth -> RLS -> database)
-- RLS policy evaluation sequence
-- Stripe webhook retry and idempotency flow
-- Cache invalidation flow after Server Actions
-- Migration rollout and rollback sequence
+- [RLS request flow](rls-request-flow.md) — Problem -> fix -> production guide for RLS policy evaluation (browser -> middleware -> SSR auth -> RLS -> database).
+- [Stripe webhook retry & idempotency state machine](stripe-webhook-state-machine.md) — The `received -> processing -> processed | failed` state machine from the [idempotency SQL template](../templates/stripe-webhook-idempotency-template.sql), tied to [INC-016](../incident-index/README.md) and the [Stripe webhook test plan](../playbooks/stripe-webhook-test-plan.md). Includes the three-delivery sequence (happy path, duplicate-while-processing, timeout-then-reclaim).
 
-Store Mermaid sources here first, then export image assets as needed for docs and social sharing.
+## Planned (not yet built)
+
+Do not link these until the files exist:
+
+- Request lifecycle (browser -> middleware -> SSR auth -> RLS -> database) — planned.
+- Cache invalidation flow after Server Actions — planned.
+- Migration rollout and rollback sequence — planned.
