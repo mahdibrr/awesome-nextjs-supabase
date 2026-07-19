@@ -1,0 +1,43 @@
+# Marks dormant issues and PRs stale after 60 days and closes them 14 days
+# later, so the issue tracker reflects what actually needs help. Contributor
+# bait ("good first issue", "help wanted") is exempt so small entry points are
+# not silently closed while waiting for a taker.
+
+name: Mark stale issues and PRs
+
+on:
+  schedule:
+    - cron: '17 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v9
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          days-before-stale: 60
+          days-before-close: 14
+          stale-issue-label: 'stale'
+          stale-pr-label: 'stale'
+          exempt-issue-labels: 'good first issue,help wanted,pinned,keep-open'
+          exempt-pr-labels: 'pinned,keep-open'
+          stale-issue-message: >
+            This issue has had no activity for 60 days. It will be closed in 14
+            days unless someone comments or picks it up. If it still matters,
+            leave a note — or open a PR and link it here.
+          stale-pr-message: >
+            This pull request has had no activity for 60 days. It will be
+            closed in 14 days unless it's updated. Ping a maintainer if you're
+            still working on it.
+          close-issue-message: >
+            Closing as stale. Reopen or open a fresh issue with current details
+            if this is still relevant.
+          close-pr-message: >
+            Closing as stale. Feel free to reopen with a rebase if you pick
+            this back up.

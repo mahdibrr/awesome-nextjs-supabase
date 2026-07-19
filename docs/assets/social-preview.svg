@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640" font-family="Segoe UI, Inter, Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="0.55" stop-color="#111827"/>
+      <stop offset="1" stop-color="#0b1120"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#3ecf8e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  <!-- accent rule -->
+  <rect x="80" y="150" width="120" height="8" rx="4" fill="url(#accent)"/>
+  <!-- tagline -->
+  <text x="80" y="210" fill="#94a3b8" font-size="30" letter-spacing="2">CURATED · PRODUCTION-FIRST</text>
+  <!-- title -->
+  <text x="76" y="320" fill="#f8fafc" font-size="118" font-weight="800" letter-spacing="-3">Next.js + Supabase</text>
+  <text x="80" y="430" fill="#e2e8f0" font-size="56" font-weight="600">what breaks <tspan fill="url(#accent)">after</tspan> you deploy</text>
+  <!-- footer chips -->
+  <g font-size="34" font-weight="700">
+    <rect x="80"  y="520" width="230" height="64" rx="32" fill="#0e2335" stroke="#22d3ee" stroke-opacity="0.5"/>
+    <text x="195" y="563" fill="#22d3ee" text-anchor="middle">RLS</text>
+    <rect x="330" y="520" width="300" height="64" rx="32" fill="#0e2335" stroke="#3ecf8e" stroke-opacity="0.5"/>
+    <text x="480" y="563" fill="#3ecf8e" text-anchor="middle">SSR Auth</text>
+    <rect x="650" y="520" width="300" height="64" rx="32" fill="#0e2335" stroke="#a78bfa" stroke-opacity="0.5"/>
+    <text x="800" y="563" fill="#a78bfa" text-anchor="middle">Stripe webhooks</text>
+    <rect x="970" y="520" width="230" height="64" rx="32" fill="#0e2335" stroke="#f59e0b" stroke-opacity="0.5"/>
+    <text x="1085" y="563" fill="#f59e0b" text-anchor="middle">Cache</text>
+  </g>
+  <text x="80" y="610" fill="#64748b" font-size="26">Symptom → root cause → fix · Incident index + playbooks</text>
+</svg>

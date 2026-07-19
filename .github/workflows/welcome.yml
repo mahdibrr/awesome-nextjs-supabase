@@ -1,0 +1,61 @@
+# Greets first-time contributors on their first issue or pull request.
+# A warm, specific welcome is the single highest-leverage retention move for a
+# small curated list: it signals an active maintainer and routes the newcomer
+# to the right next step. Runs on issues.opened and pull_request.opened only.
+
+name: Welcome first-time contributor
+
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post welcome comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const isIssue = !!context.payload.issue;
+            const target = isIssue ? context.payload.issue : context.payload.pull_request;
+            const author = target.user.login;
+            const assoc = target.author_association;
+
+            // FIRST_TIME_CONTRIBUTOR / FIRST_TIMER / NONE cover genuine newcomers.
+            const isNewcomer = ['FIRST_TIME_CONTRIBUTOR', 'FIRST_TIMER', 'NONE'].includes(assoc);
+            if (!isNewcomer) {
+              core.info(`Author ${author} association=${assoc} — skipping welcome.`);
+              return;
+            }
+
+            const repo = context.repo.owner + '/' + context.repo.repo;
+            const kind = isIssue ? 'issue' : 'pull request';
+            const body = [
+              `Hi @${author} — thanks for opening your first ${kind} here! 🎉`,
+              '',
+              'A maintainer will take a look shortly. While you wait:',
+              '',
+              '- [Contribution guide](https://github.com/' + repo + '/blob/main/CONTRIBUTING.md) — format, scope, and review criteria.',
+              '- [Good first issues](https://github.com/' + repo + '/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) — more scoped entry points.',
+              '- [Discussions](https://github.com/' + repo + '/discussions) — open-ended questions and stack choices.',
+              '',
+              'Small, focused contributions are the easiest to review and the fastest to land. Welcome aboard.'
+            ].join('\n');
+
+            // PRs are issues too, so issues.createComment works for both and
+            // posts a top-level PR comment (pulls.createReviewComment would
+            // require inline line/position targeting, which we don't want here).
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: target.number,
+              body
+            });
+            core.info(`Posted welcome for @${author} on ${kind} #${target.number}.`);

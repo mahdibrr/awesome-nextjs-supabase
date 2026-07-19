@@ -11,6 +11,8 @@ Most tutorials stop at "it works on localhost." This list starts where productio
 
 > **Building with AI coding tools?** Drop [`AGENTS.md`](AGENTS.md) (and [`.cursor/rules/`](.cursor/rules/nextjs-supabase-production.mdc)) into your repo so Cursor, Copilot, and Claude Code stop generating the RLS, SSR-session, and Stripe-webhook bugs that only surface in production.
 
+⭐ **Found it useful? Star this repo** — it's the main signal that helps other engineers discover it. Pull requests welcome; see [Contributing](#contributing).
+
 ## Contents
 
 - [Production Incident Index](#production-incident-index)
@@ -21,6 +23,9 @@ Most tutorials stop at "it works on localhost." This list starts where productio
 - [Curated Resources](#curated-resources)
 - [Tools and Services](#tools-and-services)
 - [Curation Standards](#curation-standards)
+- [Contributing](#contributing)
+- [Where Help Is Needed](#where-help-is-needed)
+- [Contributors](#contributors)
 
 ## Production Incident Index
 
@@ -262,8 +267,32 @@ Resources are selected for operational value, not volume.
 
 ## Contributing
 
-Pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for format and quality requirements, then open a PR or an issue for broken links, incidents, or curation gaps.
+Pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for format and quality requirements, then open a PR or an issue for broken links, incidents, or curation gaps. By participating you agree to uphold our [Code of Conduct](CODE_OF_CONDUCT.md).
 
-Help is most needed in RLS incidents, deployment failures, Stripe reliability, Auth edge cases, and monitoring references.
+## Where Help Is Needed
+
+Small, scoped entry points — pick one and open a PR:
+
+| Area | Issue |
+| ---- | ----- |
+| RLS multi-tenant patterns | [#9 — schema-per-tenant vs row-level](https://github.com/mahdibrr/awesome-nextjs-supabase/issues/9) |
+| RLS audit SQL, multi-tenant check | [#4 — good first issue](https://github.com/mahdibrr/awesome-nextjs-supabase/issues/4) |
+| Testing RLS with pgTAP | [#11 — good first issue](https://github.com/mahdibrr/awesome-nextjs-supabase/issues/11) |
+| Real open-source examples | [#3 — good first issue](https://github.com/mahdibrr/awesome-nextjs-supabase/issues/3) |
+| Your hardest Next.js + Supabase bug | [#2 — good first issue](https://github.com/mahdibrr/awesome-nextjs-supabase/issues/2) |
+| Next.js 15 PPR + "use cache" gotchas | [#12](https://github.com/mahdibrr/awesome-nextjs-supabase/issues/12) |
+| Observability beyond Sentry | [#14](https://github.com/mahdibrr/awesome-nextjs-supabase/issues/14) |
+
+Or browse all [open issues](https://github.com/mahdibrr/awesome-nextjs-supabase/issues) and [good first issues](https://github.com/mahdibrr/awesome-nextjs-supabase/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22).
+
+## Contributors
+
+Thanks to everyone who has made this list better.
+
+[![Contributors](https://contrib.rocks/image?repo=mahdibrr/awesome-nextjs-supabase)](https://github.com/mahdibrr/awesome-nextjs-supabase/graphs/contributors)
+
+Want your name on this list? The issues above are waiting for a taker.
+
+---
 
 This repository is an independent community resource and is not affiliated with Vercel, Next.js, Supabase, or Stripe.

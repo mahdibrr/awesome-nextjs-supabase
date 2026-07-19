@@ -1,0 +1,16 @@
+# Issue template configuration for awesome-nextjs-supabase.
+# Keeps the three structured templates (resource_request, incident_report,
+# bug_report) as the default paths, and routes open-ended conversation to
+# Discussions so the issue tracker stays focused on actionable contributions.
+
+blank_issues_enabled: true
+contact_links:
+  - name: Ask a question / start a discussion
+    url: https://github.com/mahdibrr/awesome-nextjs-supabase/discussions
+    about: For open-ended questions, stack choices, or "has anyone seen X" threads, please use Discussions instead of opening an issue.
+  - name: Read the contribution guide first
+    url: https://github.com/mahdibrr/awesome-nextjs-supabase/blob/main/CONTRIBUTING.md
+    about: Resource format, scope, and review criteria before you open a PR.
+  - name: Good first issues
+    url: https://github.com/mahdibrr/awesome-nextjs-supabase/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22
+    about: Small, scoped entry points if you want to contribute but don't know where to start.
