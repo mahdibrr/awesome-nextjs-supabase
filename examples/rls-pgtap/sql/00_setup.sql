@@ -3,17 +3,15 @@
 -- request.jwt.claims GUC, and a helper to switch "current user" inside
 -- a test transaction. Runs on plain PostgreSQL + pgTAP (no Supabase needed).
 
--- pgTAP extension (CI creates it beforehand; locally this is a no-op if
--- already present). Wrapped so a duplicate or preloaded-shared-lib form
--- does not abort the run.
+-- pgTAP extension (CI installs it via apt beforehand; locally this is a
+-- no-op if already present). Wrapped so a missing/preloaded-only form does
+-- not abort setup; if pgtap is genuinely unavailable the tests fail loudly
+-- with "function ok() does not exist".
 DO $$
 BEGIN
-  BEGIN
-    CREATE EXTENSION IF NOT EXISTS pgtap;
-  EXCEPTION WHEN feature_not_enabled THEN
-    -- pgtap may be a preloaded shared library in some CI images; skip.
-    NULL;
-  END;
+  CREATE EXTENSION IF NOT EXISTS pgtap;
+EXCEPTION WHEN OTHERS THEN
+  NULL;
 END $$;
 
 -- Supabase-style roles. service_role carries BYPASSRLS (matches Supabase).
