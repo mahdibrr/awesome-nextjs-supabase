@@ -97,7 +97,7 @@ Practical, copy-ready assets maintained in this repo.
 | [Server Actions Debugging Matrix](reference/playbooks/server-actions-debugging-matrix.md)          | Diagnosing stale UI after a mutation.              |
 | [Snippets](content/snippets/README.md)                                                             | Reusable auth, middleware, RLS, and API helpers.   |
 | [Open Source Examples](content/open-source-examples/README.md)                                     | Studying real production-grade reference projects. |
-| [Runnable Examples](examples/README.md)                                                           | Run the bug, then watch the fix pass in CI.        |
+| [Runnable Examples](examples/README.md)                                                            | Run the bug, then watch the fix pass in CI.        |
 
 ## Production SaaS Stack
 
