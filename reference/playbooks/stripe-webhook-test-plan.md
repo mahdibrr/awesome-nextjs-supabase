@@ -1,6 +1,6 @@
 # Stripe Webhook Test Plan for Next.js + Supabase
 
-Last verified: 2026-07-19
+Updated: 2026-07-19
 
 > Companion to [INC-016](../incident-index/README.md). When a webhook handler passes the obvious tests (one event, 200 OK) but the production data drifts, the problem is almost always one of the seven scenarios below. This plan enumerates them and gives the minimum assertions each one needs.
 
@@ -72,7 +72,7 @@ Simulate a crash (or a thrown exception) between the `INSERT INTO stripe_webhook
 - A row stuck in `processing` needs a lease: treat `last_attempt_at` older than the worst-case handler runtime as reclaimable. Without the lease, one crash blocks the event forever; without an attempts cap, a poisoned event turns Stripe's retry schedule into a retry storm against a row that can never succeed.
 - Once `processing_attempts` passes a threshold, stop reclaiming and alert. Recovery for these events belongs to the reconciliation backfill (Scenario 6), not to Stripe's retries.
 
-**Assertion target:** each business mutation has its own idempotency key (e.g. unique on `(stripe_event_id, side_effect_name)`), so re-execution is a no-op rather than a duplicate. Additionally: a delivery arriving while the lease is held returns without executing side effects, and a delivery after lease expiry reclaims the row and increments `processing_attempts`.
+**Assertion target:** each business mutation has its own idempotency key — unique on `(stripe_event_id, side_effect_name)`, per the commented `stripe_side_effects` skeleton in the [idempotency template](../templates/stripe-webhook-idempotency-template.sql) — so re-execution is a no-op rather than a duplicate. Additionally: a delivery arriving while the lease is held returns without executing side effects, and a delivery after lease expiry reclaims the row and increments `processing_attempts`.
 
 ### 5. Out-of-order event delivery
 
