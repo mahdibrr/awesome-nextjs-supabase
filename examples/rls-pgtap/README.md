@@ -110,7 +110,7 @@ Plain PostgreSQL has no Supabase `auth.uid()`. `sql/00_setup.sql` provides a fai
 ```sql
 CREATE OR REPLACE FUNCTION auth.uid() RETURNS UUID
 LANGUAGE sql STABLE AS $$
-  SELECT NULLIF(current_setting('request.jwt.claims', true), '')::jsonb ->> 'sub'
+  SELECT (NULLIF(current_setting('request.jwt.claims', true), '')::jsonb ->> 'sub')::uuid
 $$;
 ```
 

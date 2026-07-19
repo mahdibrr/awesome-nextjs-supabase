@@ -25,7 +25,7 @@ CREATE SCHEMA IF NOT EXISTS auth;
 
 CREATE OR REPLACE FUNCTION auth.uid() RETURNS UUID
 LANGUAGE sql STABLE AS $$
-  SELECT NULLIF(current_setting('request.jwt.claims', true), '')::jsonb ->> 'sub'
+  SELECT (NULLIF(current_setting('request.jwt.claims', true), '')::jsonb ->> 'sub')::uuid
 $$;
 
 -- Helper to act as a specific authenticated user inside the current
