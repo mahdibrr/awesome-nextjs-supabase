@@ -7,5 +7,7 @@ user_agent = "awesome-nextjs-supabase link checker"
 accept = [200, 204, 206, 301, 302, 429]
 
 exclude = [
-  "https://github.com/mahdibrr/awesome-nextjs-supabase/actions/workflows/link-check.yml/badge.svg"
+  "https://github.com/mahdibrr/awesome-nextjs-supabase/actions/workflows/link-check.yml/badge.svg",
+  # Placeholder host used in curl examples (debugging playbooks). Never a real link.
+  "https://your-domain.com/.*"
 ]
