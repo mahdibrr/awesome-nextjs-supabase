@@ -2,7 +2,7 @@
 
 ## What This Repo Is
 
-A curated **"awesome list"** of production-focused Next.js + Supabase resources. It is **not a codebase** — it is a structured collection of links (guides, posts, snippets, checklists) organized for developers building real SaaS apps.
+A curated **"awesome list"** of production-focused Next.js + Supabase resources, plus a small runnable `examples/` workspace. The core is a structured collection of links (guides, posts, snippets, checklists) organized for developers building real SaaS apps; `examples/` adds minimal broken-vs-fixed code you can run and verify in CI.
 
 ---
 
@@ -10,13 +10,18 @@ A curated **"awesome list"** of production-focused Next.js + Supabase resources.
 
 ```
 README.md                  # Master list — the main entry point
+AGENTS.md                  # Drop-in AI-agent guardrails (Cursor, Copilot, Claude Code)
+CLAUDE.md                  # This file — curation rules and repo orientation for AI helpers
 CONTRIBUTING.md            # Contribution rules
 .lychee.toml               # Link-checker config (CI)
 .github/
-  workflows/link-check.yml # Automated broken-link CI
+  workflows/
+    awesome-lint.yml       # awesome-lint (required on main)
+    link-check.yml         # lychee broken-link check (required on main)
+    examples-ci.yml        # Vitest + pgTAP for examples/ (not required)
   ISSUE_TEMPLATE/
   PULL_REQUEST_TEMPLATE.md
-content/
+content/                   # Curated links, organized by topic
   README.md                # Hub index
   learning-paths/          # 7-day roadmap, beginner → advanced
   starter-kits/            # SaaS, auth, Stripe, realtime starters
@@ -24,6 +29,17 @@ content/
   production-checklists/   # Auth, RLS, deployment, Stripe, perf, security
   snippets/                # Code snippets: auth, middleware, RLS, API helpers
   debugging-playbook/      # Auth, RLS, hydration, API connection fixes
+reference/                 # In-repo production assets (not curated links)
+  incident-index/          # 21 incidents: symptom → root cause → fix → asset
+  playbooks/               # Postmortems and step-by-step recovery guides
+  diagrams/                # Mermaid state-machine / flow diagrams
+  sql/                     # RLS audit and diagnostic SQL
+  templates/               # Stripe webhook idempotency, pgvector benchmark, etc.
+  checklists/              # Zero-downtime rollout and release gates
+examples/                  # Runnable broken-vs-fixed workspace (Tier 1)
+  rls-pgtap/               # pgTAP tests for RLS incidents (INC-002/003/015/018/021)
+  stripe-webhook-idempotency/  # Vitest for webhook idempotency (INC-006/007/012/016)
+  nextjs15-cache-and-params/   # Vitest for cache + async params (INC-008/011/020)
 ```
 
 ---
@@ -53,21 +69,23 @@ Resources must be specific to one or more of:
 
 ## CI
 
-- **Link checker:** `.github/workflows/link-check.yml` uses [lychee](https://github.com/lycheeverse/lychee) with config in `.lychee.toml`.
-- Accepts HTTP 200/204/206/301/302/429 (429 avoids false positives from rate limits).
-- 2 retries, 20s timeout.
+- **awesome-lint** (`.github/workflows/awesome-lint.yml`): required on `main`. Enforces awesome-list rules (TOC, table-pipe alignment, no duplicate links, H1 badge style).
+- **Link checker** (`.github/workflows/link-check.yml`): required on `main`. Uses [lychee](https://github.com/lycheeverse/lychee) with config in `.lychee.toml`. Scans `README.md`, `CONTRIBUTING.md`, `AGENTS.md`, `CLAUDE.md`, `content/`, `reference/`, and `.github/`. Accepts HTTP 200/204/206/301/302/429 (429 avoids false positives from rate limits). 2 retries, 20s timeout. The `reference/**`, `AGENTS.md`, and `CLAUDE.md` paths (plus the `your-domain.com` placeholder exclusion) were added so meta-doc/reference-only PRs trigger the check — it is a required gate.
+- **examples CI** (`.github/workflows/examples-ci.yml`): runs on `examples/**` changes. Vitest job (stripe + nextjs15 examples, no services) and pgTAP job (postgres:17 container, fixed RLS suite). Not a required gate — keeps the awesome-list gates light.
 
 ---
 
-## Stats (as of June 2026)
+## Stats (as of July 2026)
 
 | Type | Count |
 |--------|------:|
-| Third-party resources (official docs, repos, tools) | ~103 |
-| iloveblogs.blog guides + posts | 16 |
-| Total unique links | ~119 |
+| Third-party resources (official docs, repos, tools) | ~176 |
+| iloveblogs.blog guides + posts | 12 |
+| Total unique external links | ~188 |
+| Production incidents catalogued | 21 |
+| Runnable examples | 3 |
 
-Counts are unique URLs across `README.md` and `content/**`. Third-party sources outnumber blog links roughly 6:1.
+Counts are unique external URLs across `README.md`, `content/**`, `reference/**`, and `examples/**` (badge and placeholder hosts excluded). The `reference/` postmortems cite official docs as evidence, which raises the third-party share to roughly 15:1 over the blog; the awesome-list core (`README.md` + `content/**`) alone is closer to 11:1.
 
 ---
 
@@ -75,8 +93,10 @@ Counts are unique URLs across `README.md` and `content/**`. Third-party sources 
 
 - **Adding resources:** find the right section in README.md or a content sub-file, format the bullet correctly.
 - **Editing descriptions:** keep them practical and specific, no keyword stuffing.
-- **Maintaining structure:** sections in README.md mirror `content/` sub-directories.
-- **Link hygiene:** flag duplicates, dead links, or off-topic entries.
+- **Maintaining structure:** the README "Curated Resources" sections mirror `content/` sub-directories; the "Reference Assets" table points into `reference/` and `examples/`.
+- **Incidents and postmortems:** new incidents get a row in `reference/incident-index/README.md` (symptom → root cause → fix → asset links) plus an anchor-map entry, and a postmortem under `reference/playbooks/` with verified-evidence doc links.
+- **Runnable examples:** `examples/` ships broken-vs-fixed pairs with pgTAP/Vitest verification and a CI job in `examples-ci.yml`. Each example links back to its incident(s); the incident-index row links forward to the example.
+- **Link hygiene:** flag duplicates, dead links, or off-topic entries. Run link check before opening a PR.
 - **README improvements:** tables, navigation, section ordering.
 
 ## What Claude Should NOT Do
