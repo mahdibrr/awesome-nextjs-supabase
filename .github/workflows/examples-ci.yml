@@ -1,0 +1,98 @@
+name: examples-ci
+
+# Light CI for the runnable examples workspace.
+#   - vitest job:  zero external services (stripe + nextjs15 examples).
+#   - pgtap  job:  postgres:17 container + pgtap extension (rls-pgtap FIXED suite).
+# The broken-vs-fixed demo (run.sh) and heavier runners (Playwright, k6) are
+# local-only — documented in each example, not wired here — to keep CI fast
+# and green. This workflow is intentionally NOT a required branch-protection
+# check; it surfaces regressions without blocking merges.
+on:
+  pull_request:
+    paths:
+      - 'examples/**'
+      - '.github/workflows/examples-ci.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'examples/**'
+      - '.github/workflows/examples-ci.yml'
+
+jobs:
+  vitest:
+    name: Vitest (stripe + nextjs15)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: |
+            examples/stripe-webhook-idempotency/package-lock.json
+            examples/nextjs15-cache-and-params/package-lock.json
+      - name: stripe-webhook-idempotency — npm ci + test
+        run: |
+          npm ci --prefix examples/stripe-webhook-idempotency
+          npm test --prefix examples/stripe-webhook-idempotency
+      - name: nextjs15-cache-and-params — npm ci + test
+        run: |
+          npm ci --prefix examples/nextjs15-cache-and-params
+          npm test --prefix examples/nextjs15-cache-and-params
+
+  pgtap:
+    name: pgTAP (rls-pgtap fixed suite)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Start PostgreSQL 17 + install pgTAP extension
+        run: |
+          docker run -d --name pg \
+            -e POSTGRES_PASSWORD=postgres \
+            -e POSTGRES_DB=rls_pgtap_example \
+            -p 5432:5432 postgres:17
+
+          # Install the pgtap extension files into the container's PG17 from the
+          # official PGDG apt repo (codename detected from the image's OS).
+          docker exec pg bash -c '
+            set -e
+            apt-get update
+            apt-get install -y curl ca-certificates gnupg lsb-release
+            install -d /usr/share/postgresql-common/pgdg
+            curl -fsSL -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc https://www.postgresql.org/media/keys/ACCC4CF8.asc
+            CODENAME=$(. /etc/os-release; echo "$VERSION_CODENAME")
+            echo "deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.asc] https://apt.postgresql.org/pub/repos/apt ${CODENAME}-pgdg main" > /etc/apt/sources.list.d/pgdg.list
+            apt-get update
+            apt-get install -y postgresql-17-pgtap
+          '
+
+          # Wait for the server to accept connections.
+          for i in $(seq 1 30); do
+            docker exec pg pg_isready -U postgres >/dev/null 2>&1 && break
+            sleep 1
+          done
+          docker exec pg pg_isready -U postgres
+
+      - name: Apply setup + schema + FIXED policies
+        run: |
+          cat examples/rls-pgtap/sql/00_setup.sql \
+              examples/rls-pgtap/sql/01_schema.sql \
+              examples/rls-pgtap/sql/02_rls_fixed.sql \
+            | docker exec -i -e PGPASSWORD=postgres pg \
+              psql -U postgres -d rls_pgtap_example -v ON_ERROR_STOP=1
+
+      - name: Install pg_prove (Perl DBD::Pg) on the runner
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libtap-parser-sourcehandler-pgtap-perl libdbd-pg-perl
+
+      - name: Run pgTAP fixed suite against the container
+        env:
+          PGHOST: localhost
+          PGPORT: 5432
+          PGUSER: postgres
+          PGPASSWORD: postgres
+          PGDATABASE: rls_pgtap_example
+        run: |
+          pg_prove examples/rls-pgtap/tests/*.test.sql
