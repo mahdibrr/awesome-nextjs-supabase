@@ -6,6 +6,7 @@ on:
       - "README.md"
       - "CONTRIBUTING.md"
       - "content/**/*.md"
+      - "reference/**/*.md"
       - ".github/**/*.md"
       - ".github/**/*.yml"
       - ".lychee.toml"
@@ -16,6 +17,7 @@ on:
       - "README.md"
       - "CONTRIBUTING.md"
       - "content/**/*.md"
+      - "reference/**/*.md"
       - ".github/**/*.md"
       - ".github/**/*.yml"
       - ".lychee.toml"
@@ -35,6 +37,6 @@ jobs:
       - name: Check links
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --config .lychee.toml --verbose --no-progress README.md CONTRIBUTING.md content .github
+          args: --config .lychee.toml --verbose --no-progress README.md CONTRIBUTING.md content reference .github
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
