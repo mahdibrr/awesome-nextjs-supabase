@@ -166,6 +166,7 @@ Practical, copy-ready assets maintained in this repo.
 - [Vercel with-supabase Example](https://github.com/vercel/next.js/tree/canary/examples/with-supabase) - Official integration shape.
 - [makerkit/nextjs-saas-starter-kit-lite](https://github.com/makerkit/nextjs-saas-starter-kit-lite) - Maintained open-source SaaS baseline.
 - [KolbySisk/next-supabase-stripe-starter](https://github.com/KolbySisk/next-supabase-stripe-starter) - Stripe-driven starter with practical SaaS structure.
+- [MailKite SaaS Starter](https://github.com/mailkite/saas-startup) - Next.js 15 + Supabase/Drizzle + Stripe starter with self-contained auth (Google/GitHub + email/password), teams, and App Router.
 
 ### Realtime, Edge Functions, and Background Work
 
